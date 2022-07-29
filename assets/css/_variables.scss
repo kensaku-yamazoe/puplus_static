@@ -12,14 +12,21 @@
     }
 }
 
-@mixin lg {
-    @media screen and (max-width: 980px) {
+@mixin sp {
+    @media screen and (max-width: 767px) {
         @content;
     }
 }
 
-@mixin sp {
-    @media screen and (max-width: 767px) {
+
+@mixin xl {
+    @media screen and (min-width: 981px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media screen and (max-width: 980px) {
         @content;
     }
 }
@@ -34,6 +41,24 @@
         #{$prefix}#{$property}: $value;
     }
 }
+
+// .pc {
+// 	@include xl {
+// 		display: block;
+// 	}
+// 	@include lg {
+// 		display: none;
+// 	}
+// }
+
+// .sp {
+// 	@include xl {
+// 		display: none;
+// 	}
+// 	@include lg {
+// 		display: block;
+// 	}
+// }
 
 $maincolor: #fff;
 $subcolor: #000;

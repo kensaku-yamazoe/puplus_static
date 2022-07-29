@@ -428,17 +428,21 @@ header .item {
 
 .hero {
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background: url(assets/images/hero/bg.png) no-repeat center;
   background-size: cover;
 }
 
-.hero .wrap {
-  padding: 14rem 0 19rem;
-  position: relative;
+@media screen and (max-width: 980px) {
+  .hero {
+    background: none;
+  }
 }
 
 .hero h1 {
-  padding-bottom: 4rem;
+  padding-top: 14rem;
 }
 
 .hero h1 .c-img-wrap {
@@ -448,11 +452,27 @@ header .item {
   margin-bottom: 8rem;
 }
 
-.hero h1 p {
+.hero .wrap {
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .hero .wrap {
+    padding: 4rem 1.5rem 19rem;
+  }
+}
+
+.hero .wrap p {
   display: inline-block;
   width: calc(735 / 1080 * 100%);
   font-size: var(--font-size_xxl);
   line-height: var(--c-line_relaxed);
+  font-weight: var(--font-weight_bold);
+  padding-bottom: 4rem;
+}
+
+.hero ul {
+  padding-bottom: 19rem;
 }
 
 .hero ul li.c-check {
@@ -485,6 +505,9 @@ header .item {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: var(--c-gap);
 }
 
@@ -589,18 +612,18 @@ header .item {
           transform: translateX(-50%);
 }
 
-.needs dl dt p {
+.needs dl dt p.c-needs-header {
   text-align: center;
   font-weight: var(--font-weight_bold);
 }
 
-.needs dl dt p span {
-  display: inline-block;
+.needs dl dt p.c-needs-header span {
+  display: block;
   font-size: var(--font-size_s);
   margin-bottom: 0.5rem;
 }
 
-.needs dl dt p span.num {
+.needs dl dt p.c-needs-header span.num {
   font-size: var(--font-size_l);
 }
 
@@ -823,7 +846,7 @@ header .item {
 }
 
 .about .l-container:first-child {
-  padding: 150px 0 0;
+  padding: 150px 0 100px;
 }
 
 .about .l-container h3 {
@@ -919,21 +942,26 @@ header .item {
           transform: translateY(-50%);
 }
 
-.about .third .u-third-content-top {
+.about .third ul.u-third-content-top {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-bottom: 6rem;
 }
 
-.about .third .u-third-content-top figure {
+.about .third ul.u-third-content-top li {
   width: 270px;
-  height: 100%;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
   border: 1px solid var(--c-grey_02);
   padding: 3.8rem;
 }
 
-.about .third .u-third-content-top figure .c-img-wrap {
+.about .third ul.u-third-content-top li figure .c-img-wrap {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -942,7 +970,7 @@ header .item {
   margin-bottom: 30px;
 }
 
-.about .third .u-third-content-top figure figcaption h5 {
+.about .third ul.u-third-content-top li figure figcaption h5 {
   font-size: var(--font-size_l);
   color: var(--c-blue);
   padding-bottom: 1rem;
@@ -952,41 +980,41 @@ header .item {
   line-height: var(--c-line_relaxed);
 }
 
-.about .third .u-third-content-top figure figcaption h5 .small {
+.about .third ul.u-third-content-top li figure figcaption h5 .small {
   font-size: var(--font-size_s);
 }
 
-.about .third .u-third-content-top figure figcaption .c-flex-start {
+.about .third ul.u-third-content-top li .u-support-range {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
 }
 
-.about .third .u-third-content-top figure figcaption .c-flex-start .left {
+.about .third ul.u-third-content-top li .u-support-range .left {
   border-right: 1px solid var(--c-grey_02);
 }
 
-.about .third .u-third-content-top figure figcaption .c-flex-start .left,
-.about .third .u-third-content-top figure figcaption .c-flex-start .right {
+.about .third ul.u-third-content-top li .u-support-range .left,
+.about .third ul.u-third-content-top li .u-support-range .right {
   width: 50%;
 }
 
-.about .third .u-third-content-top figure figcaption .c-flex-start .left p,
-.about .third .u-third-content-top figure figcaption .c-flex-start .right p {
+.about .third ul.u-third-content-top li .u-support-range .left p,
+.about .third ul.u-third-content-top li .u-support-range .right p {
   text-align: center;
   font-size: var(--font-size_m);
   font-weight: var(--font-weight_bold);
   margin-bottom: 1rem;
 }
 
-.about .third .u-third-content-top figure figcaption .c-flex-start .left img,
-.about .third .u-third-content-top figure figcaption .c-flex-start .right img {
+.about .third ul.u-third-content-top li .u-support-range .left img,
+.about .third ul.u-third-content-top li .u-support-range .right img {
   display: block;
   margin: auto;
 }
 
-.about .third .u-third-content-top figure figcaption .c-flex-start .left .notice,
-.about .third .u-third-content-top figure figcaption .c-flex-start .right .notice {
+.about .third ul.u-third-content-top li .u-support-range .left .notice,
+.about .third ul.u-third-content-top li .u-support-range .right .notice {
   font-size: var(--font-size_s);
   font-weight: var(--font-weight_thin);
   text-align: center;
@@ -1015,7 +1043,7 @@ header .item {
   border-bottom: 1px solid var(--c-grey_02);
   display: block;
   width: 50%;
-  padding: 2rem;
+  padding: 2rem 2rem 1.9rem 2rem;
   font-size: var(--font-size_l);
   font-weight: var(--font-weight_bold);
   background: var(--c-grey);
@@ -1025,11 +1053,11 @@ header .item {
   font-size: var(--font-size_s);
 }
 
-.about .third .u-third-content-bottom ul li h6.c-check {
+.about .third .u-third-content-bottom ul li .c-check {
   margin-bottom: 0;
 }
 
-.about .third .u-third-content-bottom ul li h6.c-check:before {
+.about .third .u-third-content-bottom ul li .c-check:before {
   top: 50%;
   left: 0;
   -webkit-transform: translateY(-50%);
@@ -1063,10 +1091,12 @@ header .item {
 .about .forth table tr th.u-th-blue {
   background-color: var(--c-blue);
   border-radius: 1rem 1rem 0 0;
+  line-height: 1;
 }
 
 .about .forth table tr th.u-th-grey {
   background-color: var(--c-grey_03);
+  vertical-align: middle;
 }
 
 .about .forth table tr td {
@@ -1075,6 +1105,7 @@ header .item {
 
 .about .forth table tr td .small {
   font-size: var(--font-size_s);
+  line-height: calc(24/14);
 }
 
 .about .fifth .u-fifth-content {
