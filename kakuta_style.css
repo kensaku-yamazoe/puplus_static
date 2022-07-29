@@ -1,0 +1,575 @@
+@charset "utf-8";
+
+/*-------------------------------------------------
+	Custom Properties
+---------------------------------------------------*/
+:root {
+	/* Color */
+	--c-dark: rgba(33, 41, 46, 1);
+		--c-dark_10: rgba(33, 41, 46, .1);
+		--c-dark_20: rgba(33, 41, 46, .2);
+		--c-dark_30: rgba(33, 41, 46, .3);
+		--c-dark_40: rgba(33, 41, 46, .4);
+		--c-dark_50: rgba(33, 41, 46, .5);
+		--c-dark_60: rgba(33, 41, 46, .6);
+		--c-dark_70: rgba(33, 41, 46, .7);
+		--c-dark_80: rgba(33, 41, 46, .8);
+		--c-dark_90: rgba(33, 41, 46, .9);
+	--c-white: rgba(255, 255, 255, 1);
+		--c-white_10: rgba(255, 255, 255, .1);
+		--c-white_20: rgba(255, 255, 255, .2);
+		--c-white_30: rgba(255, 255, 255, .3);
+		--c-white_40: rgba(255, 255, 255, .4);
+		--c-white_50: rgba(255, 255, 255, .5);
+		--c-white_60: rgba(255, 255, 255, .6);
+		--c-white_70: rgba(255, 255, 255, .7);
+		--c-white_80: rgba(255, 255, 255, .8);
+		--c-white_90: rgba(255, 255, 255, .9);
+	/* Font Size */
+	--font-size_base: 62.5%;
+	--font-size_xs: 1rem;
+	--font-size_s: 1.2rem;
+	--font-size_m: 1.3rem;
+	--font-size_l: 1.6rem;
+	--font-size_xl: 1.8rem;
+	--font-size_xxl: 2.4rem;
+	--font-size_xxxl: 3.6rem;
+	/* Padding */
+	--pd-inr-side: 24px;
+	/* Height */
+	--h-header: 6rem;
+	--h-footer: 20rem;
+	--h-slider: 80rem;
+	/* Width */
+	--w-side: 25rem;
+	/* Border */
+	--b-radius: 4px;
+
+	/* Slider */
+	--h-slider: 50rem;
+}
+
+/*-------------------------------------------------
+	Reset
+---------------------------------------------------*/
+body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, tr, td, th, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	background: transparent;
+	border: 0;
+	border-spacing: 0;
+	box-sizing: border-box;
+	font-style: normal;
+	list-style: none;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	text-decoration: none;
+	vertical-align: baseline;
+}
+
+html {
+	font-size: var(--font-size_base);
+	line-height: 1;
+}
+
+a, address {
+	color: var(--c-dark);
+	text-decoration: none;
+	font-style: normal;
+}
+
+a:visited {
+	/* color: var(--c-dark); */
+}
+
+/*-------------------------------------------------
+	Common
+---------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+
+html {
+	height: 100%;
+}
+body {
+	color: var(--c-dark);
+	height: 100%;
+}
+
+.c-strong {
+	font-weight: bold;
+}
+
+/*-------------------------------------------------
+	Layout
+---------------------------------------------------*/
+/*
+	Block
+-----------------------------------------*/
+.p-block_content {
+	padding-top: var(--pd-inr-side);
+	
+}
+.l-inner {
+	padding: 0 var(--pd-inr-side);
+}
+.l-row {
+	align-items: center;
+	display: flex;
+}
+
+/*-------------------------------------------------
+	Parts
+---------------------------------------------------*/
+/*
+	Button
+-----------------------------------------*/
+
+/* Common ---------------------------*/
+.c-btn {
+	cursor: pointer;
+}
+
+/*
+	Form
+-----------------------------------------*/
+
+/* Common ---------------------------*/
+.c-form_part {
+	appearance: none;
+	border: none;
+	border-radius: var(--b-radius);
+}
+
+/* Input Text -----------------------*/
+
+
+/*-------------------------------------------------
+	Header
+---------------------------------------------------*/
+header {
+	backdrop-filter: blur(2px);
+	background: var(--c-dark_50);
+	filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .3));
+	height: var(--h-header);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+header .l-inner.l-row {
+	flex-wrap: nowrap;
+	height: 100%;
+	justify-content: space-between;
+}
+header .l-col {
+	align-items: center;
+	display: inline-flex;
+}
+.c-siteTitle {
+	color: var(--c-white);
+	font: 100 var(--font-size_xxl) 'Roboto', sans-serif;
+}
+.c-siteTitle .c-ver {
+	font-size: .3em;
+	opacity: .7;
+}
+
+/* Header SideButton ----------------*/
+.btn-sidemenu {
+	cursor: pointer;
+	display: inline-block;
+	height: 24px;
+	margin-right: var(--pd-inr-side);
+	position: relative;
+	transition: .2s;
+	width: 24px;
+}
+.btn-sidemenu span {
+	background: var(--c-white);
+	content: "";
+	display: inline-block;
+	height: 1px;
+	position: absolute;
+	top: 50%;
+	transform: translateX(-50%);
+	width: 24px;
+}
+.btn-sidemenu span:first-of-type {
+	transform: translateY(calc(-50% - 5px));
+}
+.btn-sidemenu span:last-of-type {
+	transform: translateY(calc(-50% + 5px));
+}
+/* Side Hidden */
+.btn-sidemenu.-js-hide_side {
+	transform: rotate(90deg);
+}
+
+/*-------------------------------------------------
+	Main
+---------------------------------------------------*/
+main {
+	padding-top: var(--h-header);
+}
+.l-main {
+	display: flex;
+	flex-wrap: nowrap;
+	height: 100%;
+	justify-content: flex-start;
+}
+.l-main_inner {
+	flex: 1;
+	height: 100%;
+	margin-left: var(--w-side);
+	min-height: calc(100vh - var(--h-header));
+	padding-bottom: var(--h-footer);
+	position: relative;
+	width: 100%;
+}
+
+
+/*-------------------------------------------------
+	Side
+---------------------------------------------------*/
+aside {
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: var(--h-header);
+	z-index: 9;
+}
+.l-side {
+	background: var(--c-dark_30);
+	min-height: calc(100% - (var(--h-header)));
+	overflow-y: auto;
+	width: var(--w-side);
+}
+.l-side_inner {
+	padding-top: calc(var(--pd-inr-side) - 14px);
+}
+.l-side ul {
+	font-size: var(--font-size_m);
+}
+.c-btn_sidenav {
+	align-items: center;
+	color: var(--c-white);
+	cursor: pointer;
+	display: flex;
+	font-weight: bold;
+	padding: 14px var(--pd-inr-side);
+	position: relative;
+	transition: background .2s ease;
+}
+.c-btn_sidenav[href]:hover {
+	background: var(--c-white_10);
+}
+.l-side ul > li > ul > li .c-btn_sidenav {
+	font-weight: normal;
+	padding-left: calc(var(--pd-inr-side) * 2);
+}
+
+
+/*-------------------------------------------------
+	Footer
+---------------------------------------------------*/
+footer {
+	background: var(--c-dark_50);
+	bottom: 0;
+	height: var(--h-footer);
+	position: absolute;
+	width: 100%;
+}
+
+	
+
+/*-------------------------------------------------
+	Slider
+---------------------------------------------------*/
+.p-slider {
+	width: 100%;
+}
+.p-slider .l-inner {
+	height: var(--h-slider);
+	overflow-x: hidden;
+	padding: 0;
+	width: 100%;
+}
+/* Images -------------------------*/
+.p-slider .c-slide_images {
+	display: flex;
+	flex-wrap: nowrap;
+	height: 100%;
+	justify-content: flex-start;
+	width: max-content;
+}
+.p-slider .c-slide_images li {
+	width: calc(100vw - var(--w-side));
+	width: 100%;
+}
+.p-slider .c-slider_content {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+.p-slider .c-slider_content img {
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+/* Slide Button -------------------*/
+
+/* Slide Pagination ---------------*/
+
+
+/*-------------------------------------------------
+	Canvas(API)
+---------------------------------------------------*/
+.l-canvas {
+	height: 100%;
+	width: 100%;
+}
+
+#canvas {
+	display: block;
+	margin: 0 auto;
+}
+
+
+/*-------------------------------------------------
+	Canvas(CSS)
+---------------------------------------------------*/
+#c-square {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px 40px;
+	height: 100%;
+	margin: 0 auto;
+	width: 80%;
+}
+.c-path {
+	display: block;
+	height: 100px;
+	line-height: 1.4;
+	opacity: .5;
+	width: 100px;
+}
+
+
+
+
+
+
+/* 四角 */
+.c-path.at-normal {
+	background: white;
+}
+
+
+
+
+
+
+
+
+/* 三角 */
+.c-path.at-triangle {
+	background: green;
+	clip-path: polygon(
+		50% 0,
+		100% 100%,
+		0 100%,
+		50% 0
+	);
+
+
+
+	/* display: none; */
+}
+
+
+
+
+
+
+
+/* 星 */
+.c-path.at-star {
+	background: red;
+	background: url(../images/sample/mrp.png) center center/100% no-repeat;
+	clip-path: polygon(
+		50% 0,
+		61.75% 36.5%,
+		100% 36.5%,
+		69.25% 58.75%,
+		80.75% 95%,
+		50% 72.5%,
+		19.25% 95%,
+		31.75% 58.75%,
+		0% 36.5%,
+		38.25% 36.5%,
+		50% 0
+	);
+
+	/* display: none; */
+}
+
+
+
+
+
+
+
+
+/* 吹き出しA */
+.c-path.at-fukidashiA {
+	background: rgba(255, 255, 255, .5);
+	clip-path: polygon(
+		30% 0,
+		calc(30% + 10px) 20px,
+		100% 20px,
+		100% 100%,
+		0 100%,
+		0 20px,
+		calc(30% - 10px) 20px,
+		30% 0
+	);
+	font-size: 1.6rem;
+	height: auto;
+	opacity: 1;
+	padding: 2em 1.5em .5em;
+	width: fit-content;
+
+
+	/* display: none; */
+}
+
+
+
+
+
+
+
+
+
+
+/* 吹き出しB */
+:root {
+	--back-color: rgba(13, 180, 152, 0.5);
+	--border-color: rgba(255, 255, 255, 1);
+	--border-px: 60%;
+	--border-w: 2px;
+	--radius: 7px;
+	--tri-h: 30px;
+	--tri-h-m: -30px;
+	--tri-w: 30px;
+}
+.c-path.at-fukidashiB {
+	background: var(--back-color);
+	background-clip: padding-box;
+	border-top: var(--tri-h) solid var(--back-color);
+	border-radius: var(--radius);
+	clip-path: polygon(
+		0 var(--tri-h),
+		calc(var(--border-px) - calc(var(--tri-w) / 2)) var(--tri-h),
+		var(--border-px) 0,
+		calc(var(--border-px) + calc(var(--tri-w) / 2)) var(--tri-h),
+		100% var(--tri-h),
+		100% 100%,
+		0 100%,
+		0 var(--tri-h)
+	);
+	color: rgba(255, 255, 255, 1);
+	font-size: 1.6rem;
+	height: auto;
+	opacity: 1;
+	padding: .5em 1.5em;
+	position: relative;
+	width: fit-content;
+
+
+
+	/* display: none; */
+}
+.c-path.at-fukidashiB::before {
+	border: var(--border-w) solid var(--border-color);
+	border-radius: var(--radius);
+	clip-path: polygon(
+		calc(var(--border-px) - calc(var(--tri-w) / 2)) 0,
+		calc(var(--border-px) - calc(var(--tri-w) / 2)) var(--border-w),
+		calc(var(--border-px) + calc(var(--tri-w) / 2)) var(--border-w),
+		calc(var(--border-px) + calc(var(--tri-w) / 2)) 0,
+		100% 0,
+		100% 100%,
+		0 100%,
+		0 0,
+		calc(var(--border-px) - calc(var(--tri-w) / 2)) 0
+	);
+	content: "";
+	display: block;
+	height: calc(100% - calc(var(--border-w) * 2));
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: calc(100% - calc(var(--border-w) * 2));
+}
+.c-path.at-fukidashiB::after {
+	background: var(--border-color);
+	clip-path: polygon(
+		50% 0,
+		100% 100%,
+		calc(100% - var(--border-w)) 100%,
+		50% var(--border-w),
+		var(--border-w) 100%,
+		0 100%,
+		50% 0
+	);
+	content: "";
+	display: block;
+	height: var(--tri-h);
+	left: var(--border-px);
+	position: absolute;
+	top: calc(var(--tri-h-m) + var(--border-w));
+	transform: translateX(-50%);
+	width: var(--tri-w);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

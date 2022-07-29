@@ -1,0 +1,151 @@
+@charset "UTF-8";
+/*変数設定用*/
+.text-copy {
+  font-size: 48px;
+}
+
+.text-primary {
+  font-size: 36px;
+}
+
+.text-notice {
+  font-size: 24px;
+}
+
+.text-large {
+  font-size: 20px;
+}
+
+.text-normal {
+  font-size: 16px;
+}
+
+.text-small {
+  font-size: 10px;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -o-pixelated;
+      image-rendering: pixelated;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+a:hover p:hover {
+  opacity: 0.7;
+}
+
+a:hover img:hover {
+  opacity: 0.7;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-size: 62.5%;
+  /*ゴシック*/
+  font-family: "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "NotoSansCJKjp-Regular", "Noto Sans CJK JP", -apple-system, BlinkMacSystemFont, "Helvetica Neue", HelveticaNeue, "Segoe UI", "游ゴシック体", YuGothic, "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium",  "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  /*明朝*/
+  /*font-family: Georgia, "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;*/
+}
+
+header {
+  width: 100%;
+  height: auto;
+}
+
+footer {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .vpc {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .vpc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .vsp {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .vsp {
+    display: block;
+  }
+}
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    width: 90%;
+  }
+}
+
+/* ページTOP */
+#page-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 77%;
+}
+
+#page-top a {
+  text-decoration: none;
+  width: 100px;
+  padding: 30px 0;
+  text-align: center;
+  display: block;
+  border-radius: 5px;
+}
+
+#page-top a:hover {
+  text-decoration: none;
+}
+/*# sourceMappingURL=common.css.map */

@@ -1,0 +1,117 @@
+@import "variables.scss";
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	vertical-align: bottom;
+	image-rendering : pixelated;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	&:hover {
+		opacity: 0.7;
+		p:hover {
+			opacity: 0.7;
+		}
+		img:hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	font-size: 62.5%;
+	/*ゴシック*/
+	font-family: "ヒラギノ角ゴ ProN",
+		"Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro",
+		"NotoSansCJKjp-Regular", "Noto Sans CJK JP", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+		HelveticaNeue, "Segoe UI", "游ゴシック体", YuGothic, "Yu Gothic M",
+		"游ゴシック Medium", "Yu Gothic Medium", 
+		"メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	/*明朝*/
+	/*font-family: Georgia, "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;*/
+}
+
+header {
+	width: 100%;
+	height: auto;
+}
+
+footer {
+	width: 100%;
+}
+
+.vpc {
+	@include pc {
+		display: block;
+	}
+	@include sp {
+		display: none;
+	}
+}
+
+.vsp {
+	@include pc {
+		display: none;
+	}
+	@include sp {
+		display: block;
+	}
+}
+
+.clearfix:after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+.container {
+	max-width: 1200px;
+	margin: auto;
+	@include sp {
+		width: 90%;
+	}
+}
+
+// .global_menu li {
+// 	width: 18%;
+// 	float: left;
+// }
+
+/* ページTOP */
+
+#page-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	font-size: 77%;
+	a {
+		text-decoration: none;
+		width: 100px;
+		padding: 30px 0;
+		text-align: center;
+		display: block;
+		border-radius: 5px;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

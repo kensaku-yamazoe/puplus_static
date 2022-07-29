@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51.428" height="59.999" viewBox="0 0 51.428 59.999">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Icon_material-timer" data-name="Icon material-timer" d="M38.785,1.5H21.643V7.214H38.785ZM27.357,38.642h5.714V21.5H27.357ZM50.3,19.757,54.356,15.7a31.566,31.566,0,0,0-4.029-4.029l-4.057,4.057A25.712,25.712,0,1,0,50.3,19.757ZM30.214,55.785a20,20,0,1,1,20-20A19.985,19.985,0,0,1,30.214,55.785Z" transform="translate(525.5 6687.5)" fill="#ccc"/>
+    </clipPath>
+  </defs>
+  <g id="icon" transform="translate(-530 -6689)">
+    <path id="Icon_material-timer-2" data-name="Icon material-timer" d="M38.785,1.5H21.643V7.214H38.785ZM27.357,38.642h5.714V21.5H27.357ZM50.3,19.757,54.356,15.7a31.566,31.566,0,0,0-4.029-4.029l-4.057,4.057A25.712,25.712,0,1,0,50.3,19.757ZM30.214,55.785a20,20,0,1,1,20-20A19.985,19.985,0,0,1,30.214,55.785Z" transform="translate(525.5 6687.5)" fill="#ccc"/>
+    <g id="マスクグループ_27" data-name="マスクグループ 27" clip-path="url(#clip-path)">
+      <g id="長方形_5009" data-name="長方形 5009" transform="translate(550 6707)" fill="#006cbe" stroke="#707070" stroke-width="1">
+        <rect width="14" height="22" stroke="none"/>
+        <rect x="0.5" y="0.5" width="13" height="21" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+/*変数設定用*/
+
+@mixin pc {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tab {
+    @media only screen and (min-width: 767px) and (max-width: 1000px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media screen and (max-width: 980px) {
+        @content;
+    }
+}
+
+@mixin sp {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin prefixes($property, $value) {
+
+    @each $prefix in -webkit-,
+    -moz-,
+    -ms-,
+    -o-,
+    "" {
+        #{$prefix}#{$property}: $value;
+    }
+}
+
+$maincolor: #fff;
+$subcolor: #000;
+
+.text{
+    &-copy{
+        font-size: 48px;
+    }
+    &-primary{
+        font-size: 36px;
+    }
+    &-notice{
+        font-size: 24px;
+    }
+    &-large{
+        font-size: 20px;
+    }
+    &-normal{
+        font-size: 16px;
+    }
+    &-small{
+        font-size: 10px;
+    }
+}
