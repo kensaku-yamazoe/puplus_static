@@ -16,16 +16,16 @@
 	--c-white: rgba(255, 255, 255, 1);
 		--c-white_10: rgba(255, 255, 255, .1);
 		--c-white_50: rgba(255, 255, 255, .5);
+		--c-white_90: rgba(255, 255, 255, .9);
 	/* Font Size */
 	--font-size_base: 62.5%;
 	--font-size_xs: 1rem;
 	--font-size_s: 1.4rem;
 	--font-size_m: 1.6rem;
-	--font-size_l: 2rem;
-	--font-size_xl: 2.4rem;
-	--font-size_xxl: 3.6rem;
-	--font-size_xxxl: 4.8rem;
-	--font-size_xxxxl: 6.4rem;
+	--font-size_l: clamp(1.8rem, 2.2vw, 2rem);
+	--font-size_xl: clamp(2rem, 2.4vw, 2.4rem);
+	--font-size_xxl: clamp(2.2rem, 3.3vw, 3.6rem);
+	--font-size_xxxl: clamp(3rem, 4.5vw, 4.8rem);
 	/* Padding */
 	--pd-inr-side: 24px;
 	/* Height */
@@ -52,6 +52,10 @@
 
     /* gap */
     --c-gap: 6rem 2.4rem;
+    --c-gap_sp: 3rem 1.5rem;
+
+    /* transition */
+    --transition: all 0.3s ease-in-out;
 }
 
 /*-------------------------------------------------
@@ -122,8 +126,14 @@ body {
     background-image: url(assets/images/bg.svg);
     background-size: cover;
 }
+.l-white{
+    background-color: var(--c-white);
+}
 .l-inner{
     padding: 0 30px 150px;
+    @include sp {
+        padding: 0 15px 150px;
+    }
 }
 .c-blue{
     color: var(--c-blue);
@@ -133,6 +143,9 @@ body {
     color: var(--c-black);
     text-align: center;
     margin-bottom: 8rem;
+    @include sp {
+        margin-bottom: 4rem;
+    }
 }
 .c-text{
     &-l{
@@ -155,12 +168,181 @@ body {
     font-weight: var(--font-weight_bold);
 }
 
+.u-justify-end{
+    justify-content: end;
+}
+
 header{
-    position: fixed;
-    top: 0;
-    right: 80px;
-    width: fit-content;
     nav{
+        position: absolute;
+        top: 0;
+        right: 80px;
+        width: fit-content;
+        z-index: 50;
+        &.js-scroll-header{
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            position: fixed;
+            padding: 0 8rem 0 3rem;
+            top: 0;
+            right: auto;
+            justify-content: space-between;
+            transform: translateY(-100%);
+            transition: var(--transition);
+            background: var(--c-white);
+            padding-bottom: 15px;
+            z-index: 60;
+            @include lg{
+                padding: 0;
+                .nav-inner{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1.5rem 3rem;
+                    width: 100%;
+                    @include sp {
+                        padding: 1em 1.5em;
+                    }
+                }
+            }
+            &.active{
+                transform: translateY(0);
+            }
+            a.u-logo{
+                display: block;
+                height: 60px;
+                margin-top: 20px;
+                @include lg {
+                    width: fit-content;
+                    margin-top: 0;
+                }
+                @include sp {
+                    height: 32px;
+                }
+                img{
+                    object-fit: contain;
+                    height: 100%;
+                    width: auto;
+                }
+            }
+            .js-nav-btn{
+                width: 40px;
+                height: 22px;
+                position: relative;
+                cursor: pointer;
+                span{
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    background: var(--c-blue);
+                    transition: var(--transition);
+                    position: absolute;
+                    &:nth-child(1){
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    &:nth-child(2){
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                    }
+                    &:nth-child(3){
+                        top: 100%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+            .active.js-nav-btn{
+                span{
+                    &:nth-child(1){
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        transform: rotate(30deg);;
+                    }
+                    &:nth-child(2){
+                        opacity: 0;
+                    }
+                    &:nth-child(3){
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%) rotate(-30deg);
+                    }
+                }
+            }
+            .js-scroll-header-content{
+                .top{
+                    padding-bottom: 2rem;
+                }
+                @include lg {
+                    background: var(--c-white);
+                    width: 100%;
+                    height: 0;
+                    overflow-y: scroll;
+                    display: flex;
+                    flex-direction: column-reverse;
+                    justify-content: start;
+                    transition: var(--transition);
+                    position: fixed;
+                    top: 90px;
+                    @include sp {
+                        top: 44.5px;
+                    }
+                    &.active{
+                    height: 100vh;
+                    }
+                    .top,
+                    .bottom{
+                        gap: 0;
+                        width: 100%;
+                        flex-direction: column;
+                    }
+                    .bottom{
+                        margin-bottom: 4rem;
+                        li{
+                            width: 100%;
+                            a{
+                                display: block;
+                                width: 100%;
+                                padding: 2.5rem 3rem 2.6rem;
+                                @include sp {
+                                    padding: 2.5rem 1.5rem 2.6rem 1.5rem;
+                                }
+                            }
+                            border-bottom: 1px solid var(--c-grey_02);
+                            position: relative;
+                            &:first-child{
+                                border-top: 1px solid var(--c-grey_02);
+                            }
+                            &:after{
+                                content: url(assets/images/svg/icon-arrow.svg);
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                right: 3rem;
+                                @include sp {
+                                    right: 1.5rem;
+                                }
+                            }
+                        }
+                    }
+                    .header-btn{
+                        width: fit-content;
+                        min-width: 345px;
+                        border-radius: 0.4em;
+                        padding: 2em;
+                        margin: 0 auto 2rem;
+                        justify-content: center;
+                        @media screen and (max-width:375px) {
+                            min-width: 300px;
+                        }
+                    }
+                }
+            }
+        }
         ul{
             display: flex;
             justify-content: end;
@@ -245,25 +427,56 @@ header{
 .hero{
     width: 100%;
     height: fit-content;
-    background: url(assets/images/hero/bg.png) no-repeat center;
-    background-size: cover;
+    background: url(assets/images/hero/bg.png) no-repeat center / cover;
     @include lg{
         background: none;
     }
     h1{
         padding-top: 14rem;
+        @include lg {
+            height: calc(240 /375 * 100%);
+            padding: 4rem 1.5rem 0;
+            background: url(assets/images/hero/bg.png) no-repeat center / cover;
+            margin-bottom: 6rem;
+        }
         .c-img-wrap{
-            display: block;
-            width: 560px;
-            margin: auto;
-            margin-bottom: 8rem;
+            &.logo{
+                display: block;
+                width: 560px;
+                margin: auto;
+                margin-bottom: 5rem;
+                @include lg {
+                    width: calc(280 / 375 * 100%);
+                    min-width: 280px;
+                    margin-bottom: -1rem;
+                }
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    .u-pc-img{
+        &.u-pc{
+            width: calc(700 / 1080 * 100%);
+            position: absolute;
+            right: 0;
+            bottom: -4rem;
+        }
+        &.u-sp{
+            width: calc(280 / 375 * 100%);
+            min-width: 280px;
+            margin-right: 0;
+            margin-left: auto;
+            position: relative;
+            bottom: -3rem;
         }
     }
     .wrap{
         position: relative;
-        @include sp {
-            padding: 4rem 1.5rem 19rem;
-        }
+        max-width: 1130px;
+        padding: 0 30px;
         p{
             display: inline-block;
             width: calc(735 / 1080 * 100%);
@@ -271,26 +484,28 @@ header{
             line-height: var(--c-line_relaxed);
             font-weight: var(--font-weight_bold);
             padding-bottom: 4rem;
+            @include lg {
+                width: 100%;
+            }
         }
     }
     ul{
         padding-bottom: 19rem;
+        @include lg {
+            padding-bottom: 8rem;
+        }
         li.c-check{
             font-size: var(--font-size_l);
             font-weight: var(--font-weight_bold);
             margin-bottom: 2rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
         }
-    }
-    .u-pc-img{
-        display: block;
-        width: calc(700 / 1080 * 100%);
-        position: absolute;
-        right: 0;
-        bottom: -4rem;
     }
 }
 .case{
-    padding-top: 150px;
+    padding-top: 15rem;
     h2{
         font-size: var(--font-size_l);
         margin-bottom: 6rem;
@@ -301,20 +516,28 @@ header{
         flex-wrap: wrap;
         justify-content: center;
         gap: var(--c-gap);
+        @include sp {
+            gap: var(--c-gap_sp);
+        }        
         .card{
             position: relative;
-            padding: 28px 22px 32px 20px;
+            padding: 30px 22px 30px 20px;
+            // padding: 28px 22px 32px 20px;
             background: #fff;
             border: 1px solid #ccc;
             width: 252px;
+            @include sp {
+                width: 165px;
+            }
             h4{
 	            font-size: var(--font-size_l);
                 color: #006CBE;
-                margin-bottom: 15px;
+                // margin-bottom: 15px;
             }
-            p{
-                font-size: 14px;
-            }
+            // p{
+            //     font-size: var(--font-size_s);
+            //     line-height: var(--c-line_relaxed);
+            // }
             .c-img-wrap{
                 position: absolute;
                 left: 2rem;
@@ -362,6 +585,13 @@ header{
 }
 
 .needs{
+    padding-top: 15rem;
+    @include lg {
+        padding-top: 0;
+        h2{
+            line-height: var(--c-line_relaxed);
+        }
+    }
     dl{
         dt{
             background: var(--c-blue);
@@ -373,6 +603,10 @@ header{
             align-items: center;
             justify-content: center;
             gap: 9px;
+            @include lg {
+                flex-direction: column;
+                padding: 2rem;
+            }
             &::after{
                 content: '';
                 background: url(assets/images/needs/triangle_bl.svg);
@@ -402,20 +636,19 @@ header{
         dd{
             background: var(--c-white);
             border-radius: 0 0 10px 10px;
-            padding: 40px;
-            margin-bottom: 80px;
+            padding: 4rem;
+            margin-bottom: 8rem;
+            @include lg {
+                padding: 4rem 2rem;
+            }
             &:last-child{
                 margin-bottom: 0;
             }
             .description{
                 font-size: var(--font-size_m);
                 font-weight: var(--font-weight_bold);
-                text-align: center;
                 margin-bottom: 40px;
                 line-height: 1.5em;
-                @include sp {
-                    text-align: left;
-                }
             }
             .c-flex-start{
                 flex-wrap: wrap;
@@ -430,6 +663,10 @@ header{
                     margin: auto;
                     margin-bottom: 40px;
                 }
+                h4{
+                    font-size: var(--font-size_s);
+                    margin-bottom: 1rem;
+                }
                 figure{
                     display: flex;
                     align-items: center;
@@ -442,11 +679,10 @@ header{
                         object-fit: contain;
                         margin-right: 17px;
                     }
-                    h4{
-                        font-size: var(--font-size_l);
-                        line-height: var(--c-line_normal);
-                        .blue{
-                            color: var(--c-blue);
+                    figcaption{
+                        p{
+                            font-size: var(--font-size_l);
+                            font-weight: var(--font-weight_bold);
                         }
                     }
                 }
@@ -499,9 +735,16 @@ header{
 }
 
 .achievement{
-    padding-top: 15rem;
+    .c-title{
+        .small{
+            font-size: var(--font-size_xl);
+        }
+    }
     .c-flex-wrap{
         gap: var(--c-gap);
+        @include sp {
+            gap: var(--c-gap_sp);
+        }        
         justify-content: center;
     }
     .card{
@@ -562,15 +805,15 @@ header{
 }
 
 .about{
+    .l-container.title{
+        padding: 150px 0 0;
+    }
     .u-about-title{
         font-size: var(--font-size_xl);
         color: var(--c-blue);
         margin-bottom: 2rem;
     }
     .l-container{
-        &:first-child{
-            padding: 150px 0 100px;
-        }
         padding: 100px 0;
         h3{
             margin-bottom: 67px;
@@ -785,6 +1028,9 @@ header{
     .fifth{
         .u-fifth-content{
             gap: var(--c-gap);
+            @include sp {
+                gap: var(--c-gap_sp);
+            }            
             position: relative;
             margin-bottom: 4rem;
             .left,

@@ -7,21 +7,45 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="style.css">
     <title>Publus 静的</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <!-- ヘッダーデザイン区ゴタさんに確認 -->
+<script>
+    
+    $(function(){
+        $(window).on('load scroll', function(){
+        var pos = $('.js-content-top').offset().top;
+            if ($(this).scrollTop() > pos && $('.js-scroll-header').hasClass('active') == false) {
+                $('.js-scroll-header').addClass('active');
+            } else if ($(this).scrollTop() < pos && $('.js-scroll-header').hasClass('active') == true) {
+                $('.js-scroll-header').removeClass('active');
+            }
+        });
+
+        $('.js-nav-btn').on('click', function(){
+            $('.js-nav-btn').toggleClass('active');
+            $('.js-scroll-header-content').toggleClass('active');
+        })
+        $('.header-btn .header-nav').on('click', function(){
+            $('.js-nav-btn').removeClass('active');
+            $('.js-scroll-header-content').removeClass('active');
+        })
+    })
+
+</script>
+
     <header>
-        <nav>
+        <nav class="u-pc">
             <ul>
                 <li>
-                    <a href="<?php echo home_url(); ?>" class="header-btn text-normal u-contact">
+                    <a href="#" class="header-btn text-normal u-contact">
                         <img src="assets/images/svg/paper_plane.svg" alt="紙飛行機のアイコン">
                         <p>お見積り・お問い合わせ</p>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo home_url(); ?>" class="header-btn text-normal u-booking">
+                    <a href="#" class="header-btn text-normal u-booking">
                         <img src="assets/images/svg/calendar.svg" alt="カレンダーのアイコン">
                         <p>個別無料相談予約</p>
                     </a>
@@ -30,779 +54,826 @@
 
             <ul>
                 <li>
-                    <a href="<?php echo home_url(); ?>" class="header-nav text-normal">
-                        <p>トップページ</p>
+                    <a href="#" class="header-nav text-normal">
+                        <p>ホーム</p>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo home_url(); ?>" class="header-nav text-normal">
+                    <a href="#" class="header-nav text-normal">
                         <p>PUBLUS liteの概要</p>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo home_url(); ?>" class="header-nav text-normal">
+                    <a href="#" class="header-nav text-normal">
                         <p>ユースケース</p>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo home_url(); ?>" class="header-nav text-normal">
+                    <a href="#" class="header-nav text-normal">
                         <p>実績</p>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo home_url(); ?>" class="header-nav text-normal">
+                    <a href="#" class="header-nav text-normal">
                         <p>価格</p>
                     </a>
                 </li>
             </ul>
         </nav>
+
+        <nav class="js-scroll-header">
+            <div class="nav-inner">
+                <a href="" class="u-logo">
+                    <img src="assets/images/logo.svg" alt="PUBLUS lite">
+                </a>
+                <div class="js-nav-btn u-sp">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="js-scroll-header-content">
+                <ul class="u-justify-end top">
+                    <li>
+                        <a href="#" class="header-btn text-normal u-contact">
+                            <img src="assets/images/svg/paper_plane.svg" alt="紙飛行機のアイコン">
+                            <p>お見積り・お問い合わせ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="header-btn text-normal u-booking">
+                            <img src="assets/images/svg/calendar.svg" alt="カレンダーのアイコン">
+                            <p>個別無料相談予約</p>
+                        </a>
+                    </li>
+                </ul>
+        
+                <ul class="u-justify-end bottom">
+                    <li>
+                        <a href="#" class="header-nav text-normal">
+                            <p>ホーム</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="header-nav text-normal">
+                            <p>PUBLUS liteの概要</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="header-nav text-normal">
+                            <p>ユースケース</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="header-nav text-normal">
+                            <p>実績</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="header-nav text-normal">
+                            <p>価格</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
 
+
     <main>
-        <section class="hero">
-            <h1>
-                <span class="c-img-wrap logo">
-                    <img src="assets/images/logo.svg" alt="PUBLUS Lite 電子テキストや電子書籍の配信を始める上で、特にセキュリティ面、多ユーザでの利用、システム連携などに課題を持つお客様に最適なシステムです">
-                </span>
-                <!-- <span class="c-img-wrap u-pc-img sp"><img src="assets/images/hero/pc.png" alt="ノートパソコンでの使用イメージ"></span> -->
-            </h1>
-            <div class="wrap">
-                <div class="">
-                    <p class="">電子テキストや電子書籍の配信を始める上で、特にセキュリティ面、多ユーザでの利用、システム連携などに課題を持つお客様に最適なシステムです</p>
-                    <ul>
-                        <li class="c-check"><span class="c-blue">GIGAスクール</span>に対応したい</li>
-                        <li class="c-check"><span class="c-blue">自社環境</span>で<span class="c-blue">構築＆サービス提供したい</span></li>
-                        <li class="c-check"><span class="c-blue">自社システムと連携</span>したい</li>
-                    </ul>
-                </div>
-                <span class="c-img-wrap u-pc-img pc"><img src="assets/images/hero/pc.png" alt="ノートパソコンでの使用イメージ"></span>
-            </div>
-        </section>
-    
         <div class="l-pattern">
-            <div class="l-inner">
-                <section class="case">
-                    <div class="wrap">
-                        <h2>さまざまな業種でご活用いただいています</h2>
-                        <ul class="container">
-                            <li class="card">
-                                <figure>
-                                    <span class="c-img-wrap img01"><img src="assets/images/svg/icon-book.svg" alt="本のアイコン"></span>
-                                    <figcaption>
-                                        <h4>印刷</h4>
-                                        <p>見本誌の削減や電子書籍の配信</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="card">
-                                <figure>
-                                    <span class="c-img-wrap img02"><img src="assets/images/svg/icon-academic.svg" alt="学生帽のアイコン"></span>
-                                    <figcaption>
-                                        <h4>印刷</h4>
-                                        <p>見本誌の削減や電子書籍の配信</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="card">
-                                <figure>
-                                    <span class="c-img-wrap img03"><img src="assets/images/svg/icon-book-open.svg" alt="本を開いたアイコン"></span>
-                                    <figcaption>
-                                        <h4>印刷</h4>
-                                        <p>見本誌の削減や電子書籍の配信</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="card">
-                                <figure>
-                                    <span class="c-img-wrap img04"><img src="assets/images/svg/icon-hospital.svg" alt="病院のアイコン"></span>
-                                    <figcaption>
-                                        <h4>印刷</h4>
-                                        <p>見本誌の削減や電子書籍の配信</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="card">
-                                <figure>
-                                    <span class="c-img-wrap img05"><img src="assets/images/svg/icon-system.svg" alt="情報のアイコン"></span>
-                                    <figcaption>
-                                        <h4>印刷</h4>
-                                        <p>見本誌の削減や電子書籍の配信</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="card">
-                                <figure>
-                                    <span class="c-img-wrap img06"><img src="assets/images/svg/icon-store.svg" alt="ストアのアイコン"></span>
-                                    <figcaption>
-                                        <h4>印刷</h4>
-                                        <p>見本誌の削減や電子書籍の配信</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="card">
-                                <figure>
-                                    <span class="c-img-wrap img07"><img src="assets/images/svg/icon-track.svg" alt="トラックのアイコン"></span>
-                                    <figcaption>
-                                        <h4>印刷</h4>
-                                        <p>見本誌の削減や電子書籍の配信</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li class="card">
-                                <figure>
-                                    <span class="c-img-wrap img08"><img src="assets/images/svg/icon-license.svg" alt="ライセンスのアイコン"></span>
-                                    <figcaption>
-                                        <h4>印刷</h4>
-                                        <p>見本誌の削減や電子書籍の配信</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
+            <section class="hero">
+                <h1>
+                    <span class="c-img-wrap logo">
+                        <img src="assets/images/logo.svg" alt="PUBLUS Lite 電子テキストや電子書籍の配信を始める上で、特にセキュリティ面、多ユーザでの利用、システム連携などに課題を持つお客様に最適なシステムです">
+                    </span>
+                    <span class="c-img-wrap u-pc-img u-sp"><img src="assets/images/hero/pc.png" alt="ノートパソコンでの使用イメージ"></span>
+                </h1>
+                <div class="wrap">
+                    <div>
+                        <p>電子テキストや電子書籍の配信を始める上で、特にセキュリティ面、多人数での利用、システム連携などに課題を持つお客様に最適なシステムです</p>
+                        <ul>
+                            <li class="c-check"><span class="c-blue">GIGAスクール</span>に対応したい</li>
+                            <li class="c-check"><span class="c-blue">自社環境</span>で<span class="c-blue">構築＆サービス提供したい</span></li>
+                            <li class="c-check"><span class="c-blue">自社システムと連携</span>したい</li>
                         </ul>
                     </div>
-                </section>
-            </div>
-            <div class="l-inner">
-                <section class="needs">
-                    <div class="wrap">
-                        <h2 class="c-title">こんな<span class="c-blue">ニーズ</span>にお応えできます！</h2>
-                        <dl>
-                            <dt>
-                                <p class="c-needs-header">
-                                    <span>CASE</span>
-                                    <span class="num">01</span>
-                                </p>
-                                <h3>GIGAスクールに対応したい！</h3>
-                            </dt>
-                            <dd>
-                                <p class="description">
-                                    PUBLUS Liteは大手教育系プラットフォームと既に連携の実績があります。<br>
-                                    多数ユーザにも対応可能なシステム構成を実現しています。<br>
-                                    単なる書籍を表示するだけではなく、設問や解答などを設定することが可能です。
-                                </p>
-                                <div class="c-flex-start">
-                                    <div class="left">
-                                        <figure>
-                                            <span class="c-img-wrap"><img src="assets/images/needs/parson01.png" alt="教育系出版社 A社様"></span>
-                                            <figcaption>
-                                                <h4>
-                                                    教育系出版社<br>
-                                                    <span class="c-blue">A社様</span>
-                                                </h4>
-                                            </figcaption>
-                                        </figure>
-                                        <p>
-                                            PDFにイベント（設問や音声再生等）を設定し、アップロード用ファイルを作成しました。<br>
-                                            （弊社で対応可能です）
-                                        </p>
-                                    </div>
-                                    <div class="right">
-                                        <img src="assets/images/needs/case01.png" alt="">
-                                    </div>
-                                </div>
-                            </dd>
-
-
-                            <dt>
-                                <p class="c-needs-header">
-                                    <span>CASE</span>
-                                    <span class="num">02</span>
-                                </p>
-                                <h3>自社環境で構築＆サービス提供したい！</h3>
-                            </dt>
-                            <dd>
-                                <p class="description">
-                                    マイクロサービスで構築されているため、お客様の環境で容易に構築が可能です。<br>
-                                    OEMとして提供できる柔軟ビジネスプランがございます。
-                                </p>
-                                <div class="c-flex-start">
-                                    <div class="left">
-                                        <figure>
-                                            <span class="c-img-wrap"><img src="assets/images/needs/parson02.png" alt="業種が入ります B社様"></span>
-                                            <figcaption>
-                                                <h4>
-                                                    業種が入ります<br>
-                                                    <span class="c-blue">B社様</span>
-                                                </h4>
-                                            </figcaption>
-                                        </figure>
-                                        <p>
-                                            個人情報保護の観点から、アノテーション管理サーバをお客様の環境で構築。<br>
-                                            コストの効率化を鑑み、配信部分は弊社のシステムをSaaSとして利用しました。
-                                        </p>
-                                    </div>
-                                    <div class="right">
-                                        <img src="assets/images/needs/case02.png" alt="">
-                                    </div>
-                                </div>
-                            </dd>
-
-
-                            <dt>
-                                <p class="c-needs-header">
-                                    <span>CASE</span>
-                                    <span class="num">03</span>
-                                </p>
-                                <h3>自社システムと連携したい！</h3>
-                            </dt>
-                            <dd>
-                                <p class="description">
-                                    PUBLUS Liteは大手教育系プラットフォームと既に連携の実績があります。<br>
-                                    多数ユーザにも対応可能なシステム構成を実現しています。<br>
-                                    単なる書籍を表示するだけではなく、設問や解答などを設定することが可能です。
-                                </p>
-                                <div class="c-flex-start">
-                                    <div class="left">
-                                        <figure>
-                                            <span class="c-img-wrap"><img src="assets/images/needs/parson03.png" alt="専門出版社 C社様"></span>
-                                            <figcaption>
-                                                <h4>
-                                                    専門出版社<br>
-                                                    <span class="c-blue">C社様</span>
-                                                </h4>
-                                            </figcaption>
-                                        </figure>
-                                        <p>
-                                            電子書籍サービスは全面的にPUBLUS Liteを活用しながら、既存サービスとの連携に成功しました。
-                                        </p>
-                                    </div>
-                                    <div class="right">
-                                        <img src="assets/images/needs/case03.png" alt="">
-                                    </div>
-                                </div>
-                            </dd>
-
-                        </dl>
-                    </div>
-                </section>
-            </div>
-        </div>
-
-        <section class="consultation">
-            <h2>個別無料相談実施中</h2>
-            <a href="" class="c-btn">個別無料相談を予約</a>
-            <p>
-                「パッケージだと物足りない…」<br>
-                「フルスクラッチだと高すぎる…」<br>
-                そんな方のために、なんでも相談できる個別無料相談を実施しています。
-            </p>
-        </section>
-
-        <div class="l-pattern">
-            <div class="l-inner">
-                <section class="achievement">
-                    <div class="wrap">
-                        <h2 class="c-title"><span class="c-blue">採用実績</span></h2>
-                        <!-- ここの挙動を久保田さんに確認 -->
-                        <div class="c-flex-wrap">
-                            <div class="card">
-                                <h4>印刷</h4>
-                                <div class="round">
-                                    <img src="assets/images/svg/icon-book.svg" alt="本のアイコン">
-                                </div>
-                                <h3>豊国印刷株式会社様</h3>
-                                <dl>
-                                    <dt>業務効率の大幅な向上とコスト削減を実現</dt>
-                                    <dd>見本誌の提供効率化・迅速化のために「デジタル版見本誌提供システム」を採用、業務効率の大幅な向上およびコスト削減が可能に。</dd>
-                                </dl>
-                            </div>
-
-                            <div class="card">
-                                <h4>印刷</h4>
-                                <div class="round">
-                                    <img src="assets/images/svg/icon-book.svg" alt="本のアイコン">
-                                </div>
-                                <h3>豊国印刷株式会社様</h3>
-                                <dl>
-                                    <dt>業務効率の大幅な向上とコスト削減を実現</dt>
-                                    <dd>見本誌の提供効率化・迅速化のために「デジタル版見本誌提供システム」を採用、業務効率の大幅な向上およびコスト削減が可能に。</dd>
-                                </dl>
-                            </div>
-
-                            <div class="card">
-                                <h4>印刷</h4>
-                                <div class="round">
-                                    <img src="assets/images/svg/icon-book.svg" alt="本のアイコン">
-                                </div>
-                                <h3>豊国印刷株式会社様</h3>
-                                <dl>
-                                    <dt>業務効率の大幅な向上とコスト削減を実現</dt>
-                                    <dd>見本誌の提供効率化・迅速化のために「デジタル版見本誌提供システム」を採用、業務効率の大幅な向上およびコスト削減が可能に。</dd>
-                                </dl>
-                            </div>
-
-                            <div class="card">
-                                <h4>印刷</h4>
-                                <div class="round">
-                                    <img src="assets/images/svg/icon-book.svg" alt="本のアイコン">
-                                </div>
-                                <h3>豊国印刷株式会社様</h3>
-                                <dl>
-                                    <dt>業務効率の大幅な向上とコスト削減を実現</dt>
-                                    <dd>見本誌の提供効率化・迅速化のために「デジタル版見本誌提供システム」を採用、業務効率の大幅な向上およびコスト削減が可能に。</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-
-        <section class="about">
-            <section class="l-container">
-                <div class="wrap">
-                    <h2 class="c-title"><span class="c-blue">PUBLUS Lite</span>について</h2>
-                    <p class="c-text-m c-bold">
-                        PUBLUS Liteは、他システムとの連携カスタマイズやオンプレミス提供も可能な電子テキスト配信システムです。<br>
-                        中長期的に電子テキストや電子書籍配信ビジネスをご検討のお客様は、是非一度、お問合せください。<br>
-                        コンサルティングから要件定義、開発、運用まで幅広くお役に立てると考えております。
-                    </p>
+                    <span class="c-img-wrap u-pc-img u-pc"><img src="assets/images/hero/pc.png" alt="ノートパソコンでの使用イメージ"></span>
                 </div>
             </section>
+        
+            <section class="js-content-top">
+                <div class="l-inner">
+                    <section class="needs">
+                        <div class="wrap">
+                            <h2 class="c-title">こんな<span class="c-blue">ニーズ</span>に<br class="u-sp">お応えできます！</h2>
+                            <dl>
+                                <dt>
+                                    <p class="c-needs-header">
+                                        <span>CASE</span>
+                                        <span class="num">01</span>
+                                    </p>
+                                    <h3>GIGAスクールに対応したい！</h3>
+                                </dt>
+                                <dd>
+                                    <p class="description">
+                                        PUBLUS Liteは大手教育系プラットフォームと既に連携の実績があります。多人数にも対応可能なシステム構成を実現しています。<br>
+                                        単なる書籍を表示するだけではなく、設問や解答などを設定することが可能です。
+                                    </p>
+                                    <div class="c-flex-start">
+                                        <div class="left">
+                                            <h4 class="c-blue">対応事例</h4>
+                                            <figure>
+                                                <span class="c-img-wrap"><img src="assets/images/needs/parson01.png" alt="教育系出版社 A社様 アバター"></span>
+                                                <figcaption>
+                                                    <p>教育系出版社</p>
+                                                    <p class="c-blue">A社様</p>
+                                                </figcaption>
+                                            </figure>
+                                            <p>
+                                                PDFにイベント（設問や音声再生等）を設定し、アップロード用ファイルを作成しました。<br>
+                                                （弊社で対応可能です）
+                                            </p>
+                                        </div>
+                                        <div class="right">
+                                            <img src="assets/images/needs/case01.png" alt="">
+                                        </div>
+                                    </div>
+                                </dd>
 
-            <ol>
-                <li class="l-container first">
-                    <div class="wrap">
-                        <h3 class="c-flex-center">
-                            <span class="num">01</span>
-                            <span>
-                                <p class="c-blue">PUBLUSLiteの</p>
-                                <p>システム構成</p>
-                            </span>
-                        </h3>
-                        <figure class="c-flex-start">
-                            <span class="c-img-wrap"><img src="assets/images/about/image01.png" alt="PUBLUSLiteのシステム構成の図" class=""></span>
-                            <figcaption>
-                                <ul class="c-text-l c-bold">
-                                    <li class="c-check">PUBLUS Liteは<span class="c-blue">マイクロサービスで</span>構成されております</li>
-                                    <li class="c-check">全てを<span class="c-blue">貴社環境で構築可能</span>。APサーバ単位で環境を分けることも可能です。</li>
-                                    <li class="c-check">比較的容易にアプリケーション単位で<span class="c-blue">カスタマイズや拡張が可能</span>です。</li>
-                                </ul>
-                                <p class="c-text-s c-thin">
-                                    ※提供はWeb版のみになります。そのため、ユーザーが利用する際には、アプリのインストール等不要です。<br>
-                                    ※ネイティブアプリをご要望頂く場合は、別途Cordova、PWA等によりWebベースアプリケーションの開発が必要です。
-                                </p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </li>
-    
-                <li class="l-container l-pattern second">
-                    <div class="wrap">
-                        <h3 class="c-flex-center">
-                            <span class="num">02</span>
-                            <span>
-                                <p class="c-blue">PUBLUSLiteの</p>
-                                <p>対応ファイル</p>
-                            </span>
-                        </h3>
-                        <div class="u-second-content">
-                            <figure class="c-flex-center u-frame">
-                                <span class="c-img-wrap"><img src="assets/images/svg/icon-epub.svg" alt="E PUBのアイコン"></span>
-                                <figcaption>
-                                    <p class="c-text-l c-bold">E PUB(固定&リフロー)</p>
-                                </figcaption>
-                            </figure>
-    
-                            <figure class="c-flex-center u-frame">
-                                <span class="c-img-wrap"><img src="assets/images/svg/icon-pdf.svg" alt="PDFのアイコン"></span>
-                                <figcaption>
-                                    <p class="c-text-l c-bold">PDFファイル</p>
-                                </figcaption>
-                            </figure>
+                                <dt>
+                                    <p class="c-needs-header">
+                                        <span>CASE</span>
+                                        <span class="num">02</span>
+                                    </p>
+                                    <h3>自社環境で構築＆サービス提供したい</h3>
+                                </dt>
+                                <dd>
+                                    <p class="description">
+                                        マイクロサービスで構築されているため、お客様の環境で容易に構築が可能です。OEMとして提供できる柔軟ビジネスプランがございます。
+                                    </p>
+                                    <div class="c-flex-start">
+                                        <div class="left">
+                                            <h4 class="c-blue">対応事例</h4>
+                                            <figure>
+                                                <span class="c-img-wrap"><img src="assets/images/needs/parson02.png" alt="Sier B社様 アバター"></span>
+                                                <figcaption>
+                                                    <p>Sier</p>
+                                                    <p class="c-blue">B社様</p>
+                                                </figcaption>
+                                            </figure>
+                                            <p>
+                                                個人情報保護の観点から、アノテーション管理サーバを自社環境で構築。<br>
+                                                コストの効率化を鑑み、配信部分は弊社のシステムをSaaSとして利用しました。
+                                            </p>
+                                        </div>
+                                        <div class="right">
+                                            <img src="assets/images/needs/case02.png" alt="">
+                                        </div>
+                                    </div>
+                                </dd>
+
+                                <dt>
+                                    <p class="c-needs-header">
+                                        <span>CASE</span>
+                                        <span class="num">03</span>
+                                    </p>
+                                    <h3>自社システムと連携したい</h3>
+                                </dt>
+                                <dd>
+                                    <p class="description">
+                                        PUBLUS Liteは大手教育系プラットフォームと既に連携の実績があります。多数ユーザにも対応可能なシステム構成を実現しています。<br>
+                                        単なる書籍を表示するだけではなく、設問や解答などを設定することが可能です。
+                                    </p>
+                                    <div class="c-flex-start">
+                                        <div class="left">
+                                            <h4 class="c-blue">対応事例</h4>
+                                            <figure>
+                                                <span class="c-img-wrap"><img src="assets/images/needs/parson03.png" alt="専門出版社 C社様 アバター"></span>
+                                                <figcaption>
+                                                    <p>専門出版社</p>
+                                                    <p class="c-blue">C社様</p>
+                                                </figcaption>
+                                            </figure>
+                                            <p>
+                                                電子書籍サービスは全面的にPUBLUS Liteを活用しながら、既存サービスとの連携に成功しました。
+                                            </p>
+                                        </div>
+                                        <div class="right">
+                                            <img src="assets/images/needs/case03.png" alt="">
+                                        </div>
+                                    </div>
+                                </dd>
+
+
+
+                            </dl>
                         </div>
-                        <p class="c-text-s c-thin">
-                            ※PDFはEPUBに変換し弊社のEPUBビューワで表示を行います。そのため、機能に一部制限が発生します。
-                        </p>
-                    </div>
-                </li>
+                    </section>
+                </div>
+            </section>
     
-                <li class="l-container third">
-                    <div class="wrap">
-                        <h3 class="c-flex-center">
-                            <span class="num">03</span>
-                            <span>
-                                <p class="c-blue">PUBLUSLiteの</p>
-                                <p>ビューワ機能一覧</p>
-                            </span>
-                        </h3>
+            <section class="consultation">
+                <h2>個別無料相談実施中</h2>
+                <a href="" class="c-btn">個別無料相談を予約</a>
+                <p>
+                    「パッケージだと物足りない…」<br>
+                    「フルスクラッチだと高すぎる…」<br>
+                    そんな方のために、なんでも相談できる個別無料相談を実施しています。
+                </p>
+            </section>
     
-                        <h4 class="u-about-title">基本機能</h4>
-    
-                        <ul class="c-flex-wrap u-third-content-top">
-                            <!-- 段落ちで真ん中よせ -->
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon01.svg" alt="書籍本文表示見開きのアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            書籍本文表示<span class="small">（見開き）</span>
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon02.svg" alt="縦書き・横書き対応のアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            縦書き・横書き対応
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">文字選択不可</p>
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon03.svg" alt="旧字体表示のアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            旧字体表示
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">画像外字対応</p>
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon04.svg" alt="スムーズスクロールのアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            スムーズスクロール
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon05.svg" alt="本文内ハイライト指定とメモ登録のアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            本文内ハイライト指定とメモ登録
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-closs.svg" alt="不可">
-                                        <p class="notice">文字選択不可</p>
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon06.svg" alt="書籍本文内検索とページジャンプのアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            書籍本文内検索とページジャンプ
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">文字選択不可</p>
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon07.svg" alt="目次表示とページジャンプのアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            目次表示とページジャンプ
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon08.svg" alt="索引表示とページジャンプのアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            索引表示とページジャンプ
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">目次を応用</p>
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">目次を応用</p>
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon09.svg" alt="ハイライト・メモ一覧と頁ジャンプ・メモ検索のアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            ハイライト・メモ一覧と頁ジャンプ・メモ検索
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-closs.svg" alt="不可">
-                                        <p class="notice">文字選択不可</p>
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon10.svg" alt="メモ機能のアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            メモ機能
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">要開発</p>
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">要開発</p>
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon11.svg" alt="書誌情報表示のアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            書誌情報表示
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">要開発</p>
-                                    </div>
-                                </div>
-                            </li>
-    
-                            <li>
-                                <figure>
-                                    <div class="c-img-wrap"><img src="assets/images/about/icon12.svg" alt="書籍滞留時間記録のアイコン"></div>
-                                    <figcaption>
-                                        <h5>
-                                            書籍滞留時間記録
-                                        </h5>
-                                    </figcaption>
-                                </figure>
-                                <div class="c-flex-start u-support-range">
-                                    <div class="left">
-                                        <p>E PUB</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">要開発</p>
-                                    </div>
-                                    <div class="right">
-                                        <p>PDF</p>
-                                        <img src="assets/images/about/icon-circle.svg" alt="可">
-                                        <p class="notice">要開発</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-    
-                        <div class="u-third-content-bottom">
-                            <h5>ビューワ内メニューカスタマイズ</h5>
-                            <ul class="c-flex-wrap">
-                                <li><p class="c-check">頁移行<span class="small">（最初へ・前へ・次へ・末尾へ）</span></p></li>
-                                <li><p class="c-check">頁指定移動</p></li>
-                                <li><p class="c-check">拡大縮小</p></li>
-                                <li><p class="c-check">画面フィット<span class="small">（サイズ変更）</span></p></li>
-                                <li><p class="c-check">印刷</p></li>
-                                <li><p class="c-check">フルスクリーン表示</p></li>
-                                <li><p class="c-check">回転</p></li>
-                                <li><p class="c-check">スクロール方向切替<span class="small">（縦・横）</span></p></li>
-                                <li><p class="c-check">頁クリップ</p></li>
-                                <li><p class="c-check">意見登録</p></li>
-                                <li><p class="c-check">本文コピペ制御</p></li>
+            <div>
+                <div class="l-inner">
+                    <section class="case">
+                        <div class="wrap">
+                            <h2>さまざまな業種でご活用いただいています</h2>
+                            <ul class="container">
+                                <li class="card">
+                                    <figure>
+                                        <span class="c-img-wrap img01"><img src="assets/images/svg/icon-book.svg" alt="本のアイコン"></span>
+                                        <figcaption>
+                                            <h4>印刷</h4>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li class="card">
+                                    <figure>
+                                        <span class="c-img-wrap img02"><img src="assets/images/svg/icon-academic.svg" alt="学生帽のアイコン"></span>
+                                        <figcaption>
+                                            <h4>教育/研究機関</h4>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li class="card">
+                                    <figure>
+                                        <span class="c-img-wrap img03"><img src="assets/images/svg/icon-book-open.svg" alt="本を開いたアイコン"></span>
+                                        <figcaption>
+                                            <h4>出版</h4>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li class="card">
+                                    <figure>
+                                        <span class="c-img-wrap img04"><img src="assets/images/svg/icon-hospital.svg" alt="病院のアイコン"></span>
+                                        <figcaption>
+                                            <h4>医療</h4>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li class="card">
+                                    <figure>
+                                        <span class="c-img-wrap img05"><img src="assets/images/svg/icon-system.svg" alt="情報のアイコン"></span>
+                                        <figcaption>
+                                            <h4>情報</h4>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li class="card">
+                                    <figure>
+                                        <span class="c-img-wrap img06"><img src="assets/images/svg/icon-store.svg" alt="ストアのアイコン"></span>
+                                        <figcaption>
+                                            <h4>小売</h4>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li class="card">
+                                    <figure>
+                                        <span class="c-img-wrap img07"><img src="assets/images/svg/icon-track.svg" alt="トラックのアイコン"></span>
+                                        <figcaption>
+                                            <h4>配送</h4>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li class="card">
+                                    <figure>
+                                        <span class="c-img-wrap img08"><img src="assets/images/svg/icon-license.svg" alt="ライセンスのアイコン"></span>
+                                        <figcaption>
+                                            <h4>会員制事業</h4>
+                                        </figcaption>
+                                    </figure>
+                                </li>
                             </ul>
-                            <p class="c-text-s c-thin">※軽微な開発が追加で必要となる場合があります。詳しくはご相談ください。</p>
                         </div>
-                    </div>
-                </li>
+                    </section>
+                </div>
+
+
+                <div class="l-inner">
+                    <section class="achievement">
+                        <div class="wrap">
+                            <h2 class="c-title"><span class="c-blue">採用実績<span class="small">(一部)</span></span></h2>
+                            <!-- ここの挙動を久保田さんに確認 -->
+                            <div class="c-flex-wrap">
+                                <div class="card">
+                                    <h4>印刷</h4>
+                                    <div class="round">
+                                        <img src="assets/images/svg/icon-book.svg" alt="本のアイコン">
+                                    </div>
+                                    <h3>豊国印刷株式会社様</h3>
+                                    <dl>
+                                        <dt>業務効率の大幅な向上とコスト削減を実現</dt>
+                                        <dd>見本誌の提供効率化・迅速化のために「デジタル版見本誌提供システム」を採用、業務効率の大幅な向上およびコスト削減が可能に。</dd>
+                                    </dl>
+                                </div>
     
-                <li class="l-container l-pattern forth">
+                                <div class="card">
+                                    <h4>教育</h4>
+                                    <div class="round">
+                                        <img src="assets/images/svg/Icon-academic.svg" alt="学生帽のアイコン">
+                                    </div>
+                                    <h3>トレノケート株式会社様</h3>
+                                    <dl>
+                                        <dt>受講者の学習効果を上昇</dt>
+                                        <dd>新型コロナウイルスにより高まる需要に応えオンライン研修の電子テキスト教材として採用、受講者の学習効果を高めることを可能に。</dd>
+                                    </dl>
+                                </div>
+    
+                                <div class="card">
+                                    <h4>出版</h4>
+                                    <div class="round">
+                                        <img src="assets/images/svg/icon-book-open.svg" alt="開いた本のアイコン">
+                                    </div>
+                                    <h3>株式会社朝日出版社様</h3>
+                                    <dl>
+                                        <dt>見本提供配信で経費削減を実現</dt>
+                                        <dd>印刷物にて実施していた審査用見本提供を「デジタル版審査用見本提供システム」にて採用。全国の大学へデジタル版審査用見本の配信により、業務効率の向上かつ経費削減を実現。</dd>
+                                    </dl>
+                                </div>
+    
+                                <div class="card">
+                                    <h4>教育</h4>
+                                    <div class="round">
+                                        <img src="assets/images/svg/icon-system.svg" alt="情報のアイコン">
+                                    </div>
+                                    <h3>eライブラリー<br>
+                                        有限責任事業組合様</h3>
+                                    <dl>
+                                        <dt>サブスクリプションモデルで普及拡大を支援</dt>
+                                        <dd>小中高等学校向け電子書籍サービス「スクール イー ライブラリー」にサブスクリプションモデルで採用。全国規模でのICT教育の普及拡大を支援。</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+    
+            <section class="about">
+                <section class="l-container l-white title">
                     <div class="wrap">
-                        <h3 class="c-flex-center">
-                            <span class="num">04</span>
-                            <span>
-                                <p class="c-blue">PUBLUSLiteの</p>
-                                <p>動作環境</p>
-                            </span>
-                        </h3>
-    
-                        <h4 class="u-about-title">サポート対象</h4>
-                        <p class="c-text-m">
-                            各種端末のWebブラウザ上で動作します。
-                        </p>
-    
-                        <table>
-                            <tr>
-                                <th></th>
-                                <th class="u-th-blue">iOS タブレット</th>
-                                <th class="u-th-blue">Android タブレット</th>
-                                <th class="u-th-blue">Windows</th>
-                                <th class="u-th-blue">Mac</th>
-                            </tr>
-                            <tr>
-                                <th class="u-th-grey">OSバージョン</th>
-                                <td>最新版の一つ前のメジャーバージョン</td>
-                                <td>最新版の一つ前のメジャーバージョン</td>
-                                <td>最新版の一つ前のメジャーバージョン</td>
-                                <td>最新版の一つ前のメジャーバージョン</td>
-                            </tr>
-                            <tr>
-                                <th class="u-th-grey">ブラウザバージョン</th>
-                                <td>OS標準提供のブラウザ</td>
-                                <td>OS標準提供ブラウザChorome(最新版推奨)<br><span class="small">※Androidは機種によっては意図しない動作になる場合があります。</span></td>
-                                <td>Edge(最新版推奨)Chorome(最新版推奨)</td>
-                                <td>Safari(最新版推奨)Chorome(最新版推奨)</td>
-                            </tr>
-                        </table>
-    
-                        <p class="c-text-s c-thin">
-                            ※スマートフォンでも動作しますが、サポート対象外です。<br>
-                            ※管理画面はChoromeのみサポートしています。
+                        <h2 class="c-title"><span class="c-blue">PUBLUS Lite</span>について</h2>
+                        <p class="c-text-m c-bold">
+                            PUBLUS Liteは、他システムとの連携カスタマイズやオンプレミス提供も可能な電子テキスト配信システムです。<br>
+                            中長期的に電子テキストや電子書籍配信ビジネスをご検討のお客様は、是非一度、お問合せください。<br>
+                            コンサルティングから要件定義、開発、運用まで幅広くお役に立てると考えております。
                         </p>
                     </div>
-                </li>
+                </section>
     
-                <li class="l-container fifth">
-                    <div class="wrap">
-                        <h3 class="c-flex-center">
-                            <span class="num">05</span>
-                            <span>
-                                <p class="c-blue">PUBLUSLiteの</p>
-                                <p>価格</p>
-                            </span>
-                        </h3>
-                        <ul class="c-flex-center u-fifth-content">
-                            <li class="left">
-                                <p class="title">初期費用</p>
-                                <p class="price"><span class="large">300</span>万円</p>
-                                <p class="notice">要件定義後に正式見積もり</p>
-                            </li>
-                            <li class="right">
-                                <p class="title">ランニング費用</p>
-                                <p class="price">月額<span class="large">27</span>万円〜</p>
-                                <p class="notice">ビジネスモデルなどにより柔軟に対応いたします</p>
-                            </li>
-                            <div class="c-img-wrap"><img src="assets/images/about/icon-plus.svg" alt="+アイコン"></div>
-                        </ul>
-                        <p class="c-text-s c-thin">
-                            ※公教育への提供などの場合、別途ご相談が可能です。
-                        </p>
-                    </div>
-                </li>
-            </ol>
-        </section>
-
-        <section class="consultation">
-            <h2>個別無料相談実施中</h2>
-            <a href="" class="c-btn">個別無料相談を予約</a>
-            <p>
-                「パッケージだと物足りない…」<br>
-                「フルスクラッチだと高すぎる…」<br>
-                そんな方のために、なんでも相談できる個別無料相談を実施しています。
-            </p>
-        </section>
-
-
+                <ol>
+                    <li class="l-container l-white first">
+                        <div class="wrap">
+                            <h3 class="c-flex-center">
+                                <span class="num">01</span>
+                                <span>
+                                    <p class="c-blue">PUBLUSLiteの</p>
+                                    <p>システム構成</p>
+                                </span>
+                            </h3>
+                            <figure class="c-flex-start">
+                                <span class="c-img-wrap"><img src="assets/images/about/image01.png" alt="PUBLUSLiteのシステム構成の図" class=""></span>
+                                <figcaption>
+                                    <ul class="c-text-l c-bold">
+                                        <li class="c-check">PUBLUS Liteは<span class="c-blue">マイクロサービスで</span>構成されております</li>
+                                        <li class="c-check">全てを<span class="c-blue">お客様環境で構築可能</span>。APサーバ単位で環境を分けることも可能です。</li>
+                                        <li class="c-check">比較的容易にアプリケーション単位で<span class="c-blue">カスタマイズや拡張が可能</span>です。</li>
+                                    </ul>
+                                    <p class="c-text-s c-thin">
+                                        ※提供はWeb版のみになります。そのため、ユーザーが利用する際には、アプリのインストール等不要です。<br>
+                                        ※ネイティブアプリをご要望頂く場合は、別途Cordova、PWA等によりWebベースアプリケーションの開発が必要です。
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </li>
+        
+                    <li class="l-container second">
+                        <div class="wrap">
+                            <h3 class="c-flex-center">
+                                <span class="num">02</span>
+                                <span>
+                                    <p class="c-blue">PUBLUSLiteの</p>
+                                    <p>対応ファイル</p>
+                                </span>
+                            </h3>
+                            <div class="u-second-content">
+                                <figure class="c-flex-center u-frame">
+                                    <span class="c-img-wrap"><img src="assets/images/svg/icon-epub.svg" alt="E PUBのアイコン"></span>
+                                    <figcaption>
+                                        <p class="c-text-l c-bold">E PUB(固定&リフロー)</p>
+                                    </figcaption>
+                                </figure>
+        
+                                <figure class="c-flex-center u-frame">
+                                    <span class="c-img-wrap"><img src="assets/images/svg/icon-pdf.svg" alt="PDFのアイコン"></span>
+                                    <figcaption>
+                                        <p class="c-text-l c-bold">PDFファイル</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <p class="c-text-s c-thin">
+                                ※PDFはEPUBに変換し弊社のEPUBビューワで表示を行います。そのため、機能に一部制限が発生します。
+                            </p>
+                        </div>
+                    </li>
+        
+                    <li class="l-container l-white third">
+                        <div class="wrap">
+                            <h3 class="c-flex-center">
+                                <span class="num">03</span>
+                                <span>
+                                    <p class="c-blue">PUBLUSLiteの</p>
+                                    <p>ビューワ機能一覧</p>
+                                </span>
+                            </h3>
+        
+                            <h4 class="u-about-title">基本機能</h4>
+        
+                            <ul class="c-flex-wrap u-third-content-top">
+                                <!-- 段落ちで真ん中よせ -->
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon01.svg" alt="書籍本文表示見開きのアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                書籍本文表示<span class="small">（見開き）</span>
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon02.svg" alt="縦書き・横書き対応のアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                縦書き・横書き対応
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">文字選択不可</p>
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon03.svg" alt="旧字体表示のアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                旧字体表示
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">画像外字対応</p>
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon04.svg" alt="スムーズスクロールのアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                スムーズスクロール
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon05.svg" alt="本文内ハイライト指定とメモ登録のアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                本文内ハイライト指定とメモ登録
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-triangle.svg" alt="不可">
+                                            <p class="notice">文字選択不可</p>
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon06.svg" alt="書籍本文内検索とページジャンプのアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                書籍本文内検索とページジャンプ
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">文字選択不可</p>
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon07.svg" alt="目次表示とページジャンプのアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                目次表示とページジャンプ
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon08.svg" alt="索引表示とページジャンプのアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                索引表示とページジャンプ
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">目次を応用</p>
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">目次を応用</p>
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon09.svg" alt="ハイライト・メモ一覧と頁ジャンプ・メモ検索のアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                ハイライト・メモ一覧と頁ジャンプ・メモ検索
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-triangle.svg" alt="不可">
+                                            <p class="notice">文字選択不可</p>
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon10.svg" alt="メモ機能のアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                メモ機能
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">要開発</p>
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">要開発</p>
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon11.svg" alt="書誌情報表示のアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                書誌情報表示
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">要開発</p>
+                                        </div>
+                                    </div>
+                                </li>
+        
+                                <li>
+                                    <figure>
+                                        <div class="c-img-wrap"><img src="assets/images/about/icon12.svg" alt="書籍滞留時間記録のアイコン"></div>
+                                        <figcaption>
+                                            <h5>
+                                                書籍滞留時間記録
+                                            </h5>
+                                        </figcaption>
+                                    </figure>
+                                    <div class="c-flex-start u-support-range">
+                                        <div class="left">
+                                            <p>E PUB</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">要開発</p>
+                                        </div>
+                                        <div class="right">
+                                            <p>PDF</p>
+                                            <img src="assets/images/about/icon-circle.svg" alt="可">
+                                            <p class="notice">要開発</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+        
+                            <div class="u-third-content-bottom">
+                                <h5>ビューワ内メニューカスタマイズ</h5>
+                                <ul class="c-flex-wrap">
+                                    <li><p class="c-check">頁移行<span class="small">（最初へ・前へ・次へ・末尾へ）</span></p></li>
+                                    <li><p class="c-check">頁指定移動</p></li>
+                                    <li><p class="c-check">拡大縮小</p></li>
+                                    <li><p class="c-check">画面フィット<span class="small">（サイズ変更）</span></p></li>
+                                    <li><p class="c-check">印刷</p></li>
+                                    <li><p class="c-check">フルスクリーン表示</p></li>
+                                    <li><p class="c-check">回転</p></li>
+                                    <li><p class="c-check">スクロール方向切替<span class="small">（縦・横）</span></p></li>
+                                    <li><p class="c-check">頁クリップ</p></li>
+                                    <li><p class="c-check">意見登録</p></li>
+                                    <li><p class="c-check">本文コピペ制御</p></li>
+                                </ul>
+                                <p class="c-text-s c-thin">※軽微な開発が追加で必要となる場合があります。詳しくはご相談ください。</p>
+                            </div>
+                        </div>
+                    </li>
+        
+                    <li class="l-container forth">
+                        <div class="wrap">
+                            <h3 class="c-flex-center">
+                                <span class="num">04</span>
+                                <span>
+                                    <p class="c-blue">PUBLUSLiteの</p>
+                                    <p>動作環境</p>
+                                </span>
+                            </h3>
+        
+                            <h4 class="u-about-title">サポート対象</h4>
+                            <p class="c-text-m">
+                                各種端末のWebブラウザ上で動作します。
+                            </p>
+        
+                            <table>
+                                <tr>
+                                    <th></th>
+                                    <th class="u-th-blue">iOS タブレット</th>
+                                    <th class="u-th-blue">Android タブレット</th>
+                                    <th class="u-th-blue">Windows</th>
+                                    <th class="u-th-blue">Mac</th>
+                                </tr>
+                                <tr>
+                                    <th class="u-th-grey">OSバージョン</th>
+                                    <td>最新版の一つ前のメジャーバージョン</td>
+                                    <td>最新版の一つ前のメジャーバージョン</td>
+                                    <td>最新版の一つ前のメジャーバージョン</td>
+                                    <td>最新版の一つ前のメジャーバージョン</td>
+                                </tr>
+                                <tr>
+                                    <th class="u-th-grey">ブラウザバージョン</th>
+                                    <td>OS標準提供のブラウザ</td>
+                                    <td>OS標準提供ブラウザChorome(最新版推奨)<br><span class="small">※Androidは機種によっては意図しない動作になる場合があります。</span></td>
+                                    <td>Edge(最新版推奨)Chorome(最新版推奨)</td>
+                                    <td>Safari(最新版推奨)Chorome(最新版推奨)</td>
+                                </tr>
+                            </table>
+        
+                            <p class="c-text-s c-thin">
+                                ※スマートフォンでも動作しますが、サポート対象外です。<br>
+                                ※管理画面はChoromeのみサポートしています。
+                            </p>
+                        </div>
+                    </li>
+        
+                    <li class="l-container l-white fifth">
+                        <div class="wrap">
+                            <h3 class="c-flex-center">
+                                <span class="num">05</span>
+                                <span>
+                                    <p class="c-blue">PUBLUSLiteの</p>
+                                    <p>価格</p>
+                                </span>
+                            </h3>
+                            <ul class="c-flex-center u-fifth-content">
+                                <li class="left">
+                                    <p class="title">初期費用</p>
+                                    <p class="price"><span class="large">300</span>万円</p>
+                                    <p class="notice">要件定義後に正式見積もり</p>
+                                </li>
+                                <li class="right">
+                                    <p class="title">ランニング費用</p>
+                                    <p class="price">月額<span class="large">20</span>万円〜</p>
+                                    <p class="notice">ビジネスモデルなどにより柔軟に対応いたします</p>
+                                </li>
+                                <div class="c-img-wrap"><img src="assets/images/about/icon-plus.svg" alt="+アイコン"></div>
+                            </ul>
+                            <p class="c-text-s c-thin">
+                                ※公教育への提供などの場合、別途ご相談が可能です。
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+    
+            <section class="consultation">
+                <h2>個別無料相談実施中</h2>
+                <a href="" class="c-btn">個別無料相談を予約</a>
+                <p>
+                    「パッケージだと物足りない…」<br>
+                    「フルスクラッチだと高すぎる…」<br>
+                    そんな方のために、なんでも相談できる個別無料相談を実施しています。
+                </p>
+            </section>
+        </div>
     </main>
 
     <footer>

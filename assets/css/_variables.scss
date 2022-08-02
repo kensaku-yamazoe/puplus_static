@@ -42,23 +42,23 @@
     }
 }
 
-// .pc {
-// 	@include xl {
-// 		display: block;
-// 	}
-// 	@include lg {
-// 		display: none;
-// 	}
-// }
+.u-pc {
+	@include xl {
+		display: block!important;
+	}
+	@include lg {
+		display: none!important;
+	}
+}
 
-// .sp {
-// 	@include xl {
-// 		display: none;
-// 	}
-// 	@include lg {
-// 		display: block;
-// 	}
-// }
+.u-sp {
+	@include xl {
+		display: none!important;
+	}
+	@include lg {
+		display: block!important;
+	}
+}
 
 $maincolor: #fff;
 $subcolor: #000;
