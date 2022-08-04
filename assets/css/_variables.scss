@@ -1,32 +1,37 @@
 /*変数設定用*/
 
 @mixin pc {
-    @media screen and (min-width: 768px) {
-        @content;
-    }
-}
-
-@mixin tab {
-    @media only screen and (min-width: 767px) and (max-width: 1000px) {
+    @media screen and (min-width: 981px) {
         @content;
     }
 }
 
 @mixin sp {
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 980px) {
         @content;
     }
 }
 
-
 @mixin xl {
-    @media screen and (min-width: 981px) {
+    @media screen and (max-width: 1130px) {
         @content;
     }
 }
 
 @mixin lg {
     @media screen and (max-width: 980px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media screen and (max-width: 480px) {
         @content;
     }
 }
@@ -43,19 +48,19 @@
 }
 
 .u-pc {
-	@include xl {
+	@include pc {
 		display: block!important;
 	}
-	@include lg {
+	@include sp {
 		display: none!important;
 	}
 }
 
 .u-sp {
-	@include xl {
+	@include pc {
 		display: none!important;
 	}
-	@include lg {
+	@include sp {
 		display: block!important;
 	}
 }
