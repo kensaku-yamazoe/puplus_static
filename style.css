@@ -221,6 +221,9 @@ footer {
 }
 
 /*-------------------------------------------------
+	Variant
+---------------------------------------------------*/
+/*-------------------------------------------------
 	Reset
 ---------------------------------------------------*/
 body, div, span, object, iframe,
@@ -322,17 +325,62 @@ body {
 
 .c-text-l {
   font-size: var(--font-size_l);
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
+}
+
+.c-text-l::before, .c-text-l::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.c-text-l::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.c-text-l::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
 }
 
 .c-text-m {
   font-size: var(--font-size_m);
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
+}
+
+.c-text-m::before, .c-text-m::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.c-text-m::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.c-text-m::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
 }
 
 .c-text-s {
   font-size: var(--font-size_s);
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
+}
+
+.c-text-s::before, .c-text-s::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.c-text-s::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.c-text-s::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
 }
 
 .c-thin {
@@ -715,6 +763,51 @@ header .item {
   left: 0;
 }
 
+.c-bnr {
+  position: fixed;
+  z-index: 40;
+  right: 9rem;
+  bottom: 4rem;
+  width: calc(100% - 3rem);
+  max-width: 390px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+@media screen and (max-width: 1130px) {
+  .c-bnr {
+    right: 4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .c-bnr {
+    bottom: 2rem;
+    left: 50%;
+    right: auto;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+.c-bnr .c-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.c-bnr .c-img-wrap .u-close-btn {
+  cursor: pointer;
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
 .hero {
   width: 100%;
   height: -webkit-fit-content;
@@ -746,7 +839,7 @@ header .item {
   display: block;
   width: 560px;
   margin: auto;
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
 }
 
 @media screen and (max-width: 980px) {
@@ -789,9 +882,24 @@ header .item {
   display: inline-block;
   width: calc(735 / 1080 * 100%);
   font-size: var(--font-size_xxl);
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
   font-weight: var(--font-weight_bold);
   padding-bottom: 4rem;
+}
+
+.hero .wrap p::before, .hero .wrap p::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.hero .wrap p::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.hero .wrap p::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
 }
 
 @media screen and (max-width: 980px) {
@@ -856,7 +964,7 @@ header .item {
   width: 252px;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 480px) {
   .case .container .card {
     width: 165px;
   }
@@ -865,6 +973,21 @@ header .item {
 .case .container .card h4 {
   font-size: var(--font-size_l);
   color: #006CBE;
+}
+
+.case .container .card::before, .case .container .card::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.case .container .card::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.case .container .card::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
 }
 
 .case .container .card .c-img-wrap {
@@ -929,7 +1052,19 @@ header .item {
     padding-top: 0;
   }
   .needs h2 {
-    line-height: var(--c-line_relaxed);
+    line-height: 1.7;
+  }
+  .needs h2::before, .needs h2::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+  }
+  .needs h2::before {
+    margin-top: calc((1 - 1.7) * 0.5em);
+  }
+  .needs h2::after {
+    margin-bottom: calc((1 - 1.7) * 0.5em);
   }
 }
 
@@ -966,6 +1101,7 @@ header .item {
   background: url(assets/images/needs/triangle_bl.svg);
   display: block;
   width: 23px;
+  height: 15px;
   position: absolute;
   top: 100%;
   left: 50%;
@@ -990,6 +1126,22 @@ header .item {
 
 .needs dl dt h3 {
   font-size: var(--font-size_xxl);
+  line-height: 1.7;
+}
+
+.needs dl dt h3::before, .needs dl dt h3::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.needs dl dt h3::before {
+  margin-top: calc((1 - 2) * 0.5em);
+}
+
+.needs dl dt h3::after {
+  margin-bottom: calc((1 - 2) * 0.5em);
 }
 
 .needs dl dd {
@@ -1013,7 +1165,29 @@ header .item {
   font-size: var(--font-size_m);
   font-weight: var(--font-weight_bold);
   margin-bottom: 40px;
-  line-height: 1.5em;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.needs dl dd .description::before, .needs dl dd .description::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.needs dl dd .description::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.needs dl dd .description::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
+}
+
+@media screen and (max-width: 980px) {
+  .needs dl dd .description {
+    text-align: left;
+  }
 }
 
 .needs dl dd .c-flex-start {
@@ -1116,13 +1290,43 @@ header .item {
   border-radius: 4px;
   color: var(--c-white);
   margin: 0 auto 2rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 980px) {
+  .consultation .c-btn {
+    padding: 3rem 0;
+    width: 100%;
+    max-width: 416px;
+  }
 }
 
 .consultation p {
   font-size: var(--font-size_m);
   font-weight: var(--font-weight_bold);
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
   text-align: center;
+}
+
+.consultation p::before, .consultation p::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.consultation p::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.consultation p::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
+}
+
+@media screen and (max-width: 480px) {
+  .consultation p {
+    text-align: left;
+  }
 }
 
 .achievement .c-title .small {
@@ -1185,16 +1389,32 @@ header .item {
 }
 
 .achievement .card h3 {
+  display: block;
   font-size: var(--font-size_xxl);
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
   text-align: center;
   margin-bottom: 3rem;
+}
+
+.achievement .card h3::before, .achievement .card h3::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.achievement .card h3::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.achievement .card h3::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
 }
 
 .achievement .card dl dt {
   font-size: var(--font-size_l);
   font-weight: var(--font-weight_bold);
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
   color: var(--c-blue);
   text-align: center;
   padding-bottom: 1rem;
@@ -1202,10 +1422,40 @@ header .item {
   margin-bottom: 2rem;
 }
 
+.achievement .card dl dt::before, .achievement .card dl dt::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.achievement .card dl dt::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.achievement .card dl dt::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
+}
+
 .achievement .card dl dd {
   font-size: var(--font-size_m);
   font-weight: var(--font-weight_bold);
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
+}
+
+.achievement .card dl dd::before, .achievement .card dl dd::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.achievement .card dl dd::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.achievement .card dl dd::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
 }
 
 .about .l-container.title {
@@ -1414,7 +1664,22 @@ header .item {
   border-bottom: 0.2rem solid var(--c-blue);
   margin-bottom: 2rem;
   text-align: center;
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
+}
+
+.about .third ul.u-third-content-top li figure figcaption h5::before, .about .third ul.u-third-content-top li figure figcaption h5::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.about .third ul.u-third-content-top li figure figcaption h5::before {
+  margin-top: calc((1 - 1.7) * 0.5em);
+}
+
+.about .third ul.u-third-content-top li figure figcaption h5::after {
+  margin-bottom: calc((1 - 1.7) * 0.5em);
 }
 
 .about .third ul.u-third-content-top li figure figcaption h5 .small {
@@ -1611,7 +1876,7 @@ header .item {
 .about .forth table {
   table-layout: fixed;
   font-size: var(--font-size_m);
-  line-height: var(--c-line_relaxed);
+  line-height: 1.7;
   border-spacing: 0.5rem;
   border-collapse: separate;
   margin-bottom: 4rem;
@@ -1684,9 +1949,13 @@ header .item {
 
 @media screen and (max-width: 980px) {
   .about .forth table tr th.u-th-grey {
-    width: calc(100% / 3);
-    min-width: 113px;
-    max-width: 210px;
+    width: 210px;
+  }
+}
+
+@media screen and (max-width: 980px) and (max-width: 480px) {
+  .about .forth table tr th.u-th-grey {
+    width: 113px;
   }
 }
 
@@ -1824,5 +2093,180 @@ header .item {
   .about .fifth .u-fifth-content .c-img-wrap {
     display: none;
   }
+}
+
+/* スクロール用アニメーション c-fadeは必須 (例 "c-fade c-right") */
+.c-fade {
+  opacity: 0;
+}
+
+.c-fade.fade-v {
+  -webkit-animation: fadeIn 1s ease forwards;
+          animation: fadeIn 1s ease forwards;
+}
+
+.c-right {
+  opacity: 0;
+}
+
+.c-right.fade-v {
+  -webkit-animation: rightIn 1s ease forwards;
+          animation: rightIn 1s ease forwards;
+}
+
+.c-left {
+  opacity: 0;
+}
+
+.c-left.fade-v {
+  -webkit-animation: leftIn 1s ease forwards;
+          animation: leftIn 1s ease forwards;
+}
+
+.c-bottom {
+  opacity: 0;
+}
+
+.c-bottom.fade-v {
+  -webkit-animation: bottomIn 1s ease forwards;
+          animation: bottomIn 1s ease forwards;
+}
+
+.c-left-bit {
+  opacity: 0;
+}
+
+.c-left-bit.fade-v {
+  -webkit-animation: leftIn 1s ease forwards;
+          animation: leftIn 1s ease forwards;
+}
+
+/* 順番表示 */
+.c-right-order {
+  opacity: 0;
+}
+
+.c-right-order.fade-v:nth-child(1) {
+  -webkit-animation: 1s rightIn 0.1s ease forwards;
+          animation: 1s rightIn 0.1s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(2) {
+  -webkit-animation: 1s rightIn 0.2s ease forwards;
+          animation: 1s rightIn 0.2s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(3) {
+  -webkit-animation: 1s rightIn 0.3s ease forwards;
+          animation: 1s rightIn 0.3s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(4) {
+  -webkit-animation: 1s rightIn 0.4s ease forwards;
+          animation: 1s rightIn 0.4s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(5) {
+  -webkit-animation: 1s rightIn 0.5s ease forwards;
+          animation: 1s rightIn 0.5s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(6) {
+  -webkit-animation: 1s rightIn 0.6s ease forwards;
+          animation: 1s rightIn 0.6s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(7) {
+  -webkit-animation: 1s rightIn 0.7s ease forwards;
+          animation: 1s rightIn 0.7s ease forwards;
+}
+
+.c-right-order.fade-v {
+  -webkit-animation: rightIn 1s ease forwards;
+          animation: rightIn 1s ease forwards;
+}
+
+.c-bottom-order {
+  opacity: 0;
+}
+
+.c-bottom-order.fade-v:nth-child(1) {
+  -webkit-animation: 1s bottomIn 0.1s ease forwards;
+          animation: 1s bottomIn 0.1s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(2) {
+  -webkit-animation: 1s bottomIn 0.2s ease forwards;
+          animation: 1s bottomIn 0.2s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(3) {
+  -webkit-animation: 1s bottomIn 0.3s ease forwards;
+          animation: 1s bottomIn 0.3s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(4) {
+  -webkit-animation: 1s bottomIn 0.4s ease forwards;
+          animation: 1s bottomIn 0.4s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(5) {
+  -webkit-animation: 1s bottomIn 0.5s ease forwards;
+          animation: 1s bottomIn 0.5s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(6) {
+  -webkit-animation: 1s bottomIn 0.6s ease forwards;
+          animation: 1s bottomIn 0.6s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(7) {
+  -webkit-animation: 1s bottomIn 0.7s ease forwards;
+          animation: 1s bottomIn 0.7s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(8) {
+  -webkit-animation: 1s bottomIn 0.8s ease forwards;
+          animation: 1s bottomIn 0.8s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(9) {
+  -webkit-animation: 1s bottomIn 0.9s ease forwards;
+          animation: 1s bottomIn 0.9s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(10) {
+  -webkit-animation: 1s bottomIn 1.0s ease forwards;
+          animation: 1s bottomIn 1.0s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(11) {
+  -webkit-animation: 1s bottomIn 1.1s ease forwards;
+          animation: 1s bottomIn 1.1s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(12) {
+  -webkit-animation: 1s bottomIn 1.2s ease forwards;
+          animation: 1s bottomIn 1.2s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(13) {
+  -webkit-animation: 1s bottomIn 1.3s ease forwards;
+          animation: 1s bottomIn 1.3s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(14) {
+  -webkit-animation: 1s bottomIn 1.4s ease forwards;
+          animation: 1s bottomIn 1.4s ease forwards;
+}
+
+.c-bottom-order.fade-v:nth-child(15) {
+  -webkit-animation: 1s bottomIn 1.5s ease forwards;
+          animation: 1s bottomIn 1.5s ease forwards;
+}
+
+.c-bottom-order.fade-v {
+  -webkit-animation: bottomIn 1s ease forwards;
+          animation: bottomIn 1s ease forwards;
 }
 /*# sourceMappingURL=style.css.map */

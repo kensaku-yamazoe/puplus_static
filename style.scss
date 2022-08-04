@@ -64,6 +64,12 @@
 }
 
 /*-------------------------------------------------
+	Variant
+---------------------------------------------------*/
+    $leading_normal: 1.5;
+    $leading_relaxed: 1.7;
+    $leading_loose: 2;
+/*-------------------------------------------------
 	Reset
 ---------------------------------------------------*/
 body, div, span, object, iframe,
@@ -110,23 +116,21 @@ a:visited {
 	/* color: var(--c-black); */
 }
 
-
-@mixin lineHeightCrop($line-height) {
+@mixin lineHeight($line-height) {
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+    }
     &::before {
-      display: block;
-      width: 0;
-      height: 0;
-      margin-top: calc((1 - #{$line-height}) * .5em);
-      content: "";
+        margin-top: calc((1 - #{$line-height}) * 0.5em);
     }
     &::after {
-      display: block;
-      width: 0;
-      height: 0;
-      margin-bottom: calc((1 - #{$line-height}) * .5em);
-      content: "";
+        margin-bottom: calc((1 - #{$line-height}) * 0.5em);
     }
-}
+  }
 
 /*-------------------------------------------------
 	Common
@@ -173,15 +177,18 @@ body {
 .c-text{
     &-l{
         font-size: var(--font-size_l);
-        line-height: var(--c-line_relaxed);
+        line-height: $leading_relaxed;
+        @include lineHeight($leading_relaxed);
     }
     &-m{
         font-size: var(--font-size_m);
-        line-height: var(--c-line_relaxed);
+        line-height: $leading_relaxed;
+        @include lineHeight($leading_relaxed);
     }
     &-s{
         font-size: var(--font-size_s);
-        line-height: var(--c-line_relaxed);
+        line-height: $leading_relaxed;
+        @include lineHeight($leading_relaxed);
     }
 }
 .c-thin{
@@ -446,6 +453,39 @@ header{
     }
 }
 
+.c-bnr{
+    position: fixed;
+    z-index: 40;
+    right: 9rem;
+    bottom: 4rem;
+    width: calc(100% - 3rem);
+    max-width: 390px;
+    height: fit-content;
+    @include xl {
+        right: 4rem;
+    }
+    @include sm {
+        bottom: 2rem;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%)
+    }
+    .c-img-wrap{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+        .u-close-btn{
+            cursor: pointer;
+            display: block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+        }
+    }
+}
 .hero{
     width: 100%;
     height: fit-content;
@@ -466,7 +506,7 @@ header{
                 display: block;
                 width: 560px;
                 margin: auto;
-                margin-bottom: 5rem;
+                margin-bottom: 8rem;
                 @include sp {
                     width: calc(280 / 375 * 100%);
                     min-width: 280px;
@@ -503,7 +543,8 @@ header{
             display: inline-block;
             width: calc(735 / 1080 * 100%);
             font-size: var(--font-size_xxl);
-            line-height: var(--c-line_relaxed);
+            line-height: $leading_relaxed;
+            @include lineHeight($leading_relaxed);
             font-weight: var(--font-weight_bold);
             padding-bottom: 4rem;
             @include sp {
@@ -548,7 +589,7 @@ header{
             background: #fff;
             border: 1px solid #ccc;
             width: 252px;
-            @include sp {
+            @include sm {
                 width: 165px;
             }
             h4{
@@ -558,7 +599,8 @@ header{
             }
             // p{
             //     font-size: var(--font-size_s);
-            //     line-height: var(--c-line_relaxed);
+            //     line-height: $leading_relaxed;
+            @include lineHeight($leading_relaxed);
             // }
             .c-img-wrap{
                 position: absolute;
@@ -611,7 +653,8 @@ header{
     @include sp {
         padding-top: 0;
         h2{
-            line-height: var(--c-line_relaxed);
+            line-height: $leading_relaxed;
+            @include lineHeight($leading_relaxed);
         }
     }
     dl{
@@ -634,6 +677,7 @@ header{
                 background: url(assets/images/needs/triangle_bl.svg);
                 display: block;
                 width: 23px;
+                height: 15px;
                 position: absolute;
                 top: 100%;
                 left: 50%;
@@ -653,6 +697,8 @@ header{
             }
             h3{
                 font-size: var(--font-size_xxl);
+                line-height: $leading_relaxed;
+                @include lineHeight($leading-loose);
             }
         }
         dd{
@@ -670,7 +716,12 @@ header{
                 font-size: var(--font-size_m);
                 font-weight: var(--font-weight_bold);
                 margin-bottom: 40px;
-                line-height: 1.5em;
+                line-height: $leading_relaxed;
+                @include lineHeight($leading-relaxed);
+                text-align: center;
+                @include sp {
+                    text-align: left;
+                }
             }
             .c-flex-start{
                 flex-wrap: wrap;
@@ -750,12 +801,22 @@ header{
         border-radius: 4px;
         color: var(--c-white);
         margin: 0 auto 2rem;
+        text-align: center;
+        @include sp {
+            padding: 3rem 0;
+            width: 100%;
+            max-width: 416px;
+        }
     }
     p{
         font-size: var(--font-size_m);
         font-weight: var(--font-weight_bold);
-        line-height: var(--c-line_relaxed);
+        line-height: $leading_relaxed;
+        @include lineHeight($leading_relaxed);
         text-align: center;
+        @include sm {
+            text-align: left;
+        }
     }
 }
 
@@ -806,8 +867,10 @@ header{
             }
         }
         h3{
+            display: block;
             font-size: var(--font-size_xxl);
-            line-height: var(--c-line_relaxed);
+            line-height: $leading_relaxed;
+            @include lineHeight($leading_relaxed);
             text-align: center;
             margin-bottom: 3rem;
         }
@@ -815,7 +878,8 @@ header{
             dt{
                 font-size: var(--font-size_l);
                 font-weight: var(--font-weight_bold);
-                line-height: var(--c-line_relaxed);
+                line-height: $leading_relaxed;
+                @include lineHeight($leading_relaxed);
                 color: var(--c-blue);
                 text-align: center;
                 padding-bottom: 1rem;
@@ -825,7 +889,8 @@ header{
             dd{
                 font-size: var(--font-size_m);
                 font-weight: var(--font-weight_bold);
-                line-height: var(--c-line_relaxed);
+                line-height: $leading_relaxed;
+                @include lineHeight($leading_relaxed);
             }
         }
     }
@@ -980,7 +1045,8 @@ header{
                             border-bottom: 0.2rem solid var(--c-blue);
                             margin-bottom: 2rem;
                             text-align: center;
-                            line-height: var(--c-line_relaxed);
+                            line-height: $leading_relaxed;
+                            @include lineHeight($leading_relaxed);
                             .small{
                                 font-size: var(--font-size_s);
                             }
@@ -1147,7 +1213,7 @@ header{
         table{
             table-layout: fixed;
             font-size: var(--font-size_m);
-            line-height: var(--c-line_relaxed);
+            line-height: $leading_relaxed;
             border-spacing: 0.5rem;
             border-collapse: separate;
             margin-bottom: 4rem;
@@ -1195,9 +1261,12 @@ header{
                         background-color: var(--c-grey_03);
                         vertical-align: middle;
                         @include sp {
-                            width: calc(100% / 3);
-                            min-width: 113px;
-                            max-width: 210px;
+                            width: 210px;
+                            // min-width: 113px;
+                            // max-width: 210px;
+                            @include sm {
+                                width: 113px;
+                            }
                         }
                     }
                 }
@@ -1302,6 +1371,52 @@ header{
         }
     }
 }
+
+
+
+/* スクロール用アニメーション c-fadeは必須 (例 "c-fade c-right") */
+.c-fade { opacity: 0; }
+.c-fade.fade-v { animation: fadeIn 1s ease forwards; }
+.c-right { opacity: 0; }
+.c-right.fade-v { animation: rightIn 1s ease forwards; }
+.c-left { opacity: 0; }
+.c-left.fade-v { animation: leftIn 1s ease forwards; }
+.c-bottom { opacity: 0; }
+.c-bottom.fade-v { animation: bottomIn 1s ease forwards; }
+
+.c-left-bit { opacity: 0; }
+.c-left-bit.fade-v { animation: leftIn 1s ease forwards; }
+
+
+/* 順番表示 */
+.c-right-order { opacity: 0; }
+.c-right-order.fade-v:nth-child(1) { animation: 1s rightIn 0.1s ease forwards; }
+.c-right-order.fade-v:nth-child(2) { animation: 1s rightIn 0.2s ease forwards; }
+.c-right-order.fade-v:nth-child(3) { animation: 1s rightIn 0.3s ease forwards; }
+.c-right-order.fade-v:nth-child(4) { animation: 1s rightIn 0.4s ease forwards; }
+.c-right-order.fade-v:nth-child(5) { animation: 1s rightIn 0.5s ease forwards; }
+.c-right-order.fade-v:nth-child(6) { animation: 1s rightIn 0.6s ease forwards; }
+.c-right-order.fade-v:nth-child(7) { animation: 1s rightIn 0.7s ease forwards; }
+.c-right-order.fade-v { animation: rightIn 1s ease forwards; }
+
+.c-bottom-order { opacity: 0; }
+.c-bottom-order.fade-v:nth-child(1) { animation: 1s bottomIn 0.1s ease forwards; }
+.c-bottom-order.fade-v:nth-child(2) { animation: 1s bottomIn 0.2s ease forwards; }
+.c-bottom-order.fade-v:nth-child(3) { animation: 1s bottomIn 0.3s ease forwards; }
+.c-bottom-order.fade-v:nth-child(4) { animation: 1s bottomIn 0.4s ease forwards; }
+.c-bottom-order.fade-v:nth-child(5) { animation: 1s bottomIn 0.5s ease forwards; }
+.c-bottom-order.fade-v:nth-child(6) { animation: 1s bottomIn 0.6s ease forwards; }
+.c-bottom-order.fade-v:nth-child(7) { animation: 1s bottomIn 0.7s ease forwards; }
+.c-bottom-order.fade-v:nth-child(8) { animation: 1s bottomIn 0.8s ease forwards; }
+.c-bottom-order.fade-v:nth-child(9) { animation: 1s bottomIn 0.9s ease forwards; }
+.c-bottom-order.fade-v:nth-child(10) { animation: 1s bottomIn 1.0s ease forwards; }
+.c-bottom-order.fade-v:nth-child(11) { animation: 1s bottomIn 1.1s ease forwards; }
+.c-bottom-order.fade-v:nth-child(12) { animation: 1s bottomIn 1.2s ease forwards; }
+.c-bottom-order.fade-v:nth-child(13) { animation: 1s bottomIn 1.3s ease forwards; }
+.c-bottom-order.fade-v:nth-child(14) { animation: 1s bottomIn 1.4s ease forwards; }
+.c-bottom-order.fade-v:nth-child(15) { animation: 1s bottomIn 1.5s ease forwards; }
+.c-bottom-order.fade-v { animation: bottomIn 1s ease forwards; }
+
 
 
 
