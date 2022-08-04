@@ -111,25 +111,25 @@ footer {
   width: 100%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 981px) {
   .vpc {
     display: block;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 980px) {
   .vpc {
     display: none;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 981px) {
   .vsp {
     display: none;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 980px) {
   .vsp {
     display: block;
   }

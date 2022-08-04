@@ -56,6 +56,11 @@
 
     /* transition */
     --transition: all 0.3s ease-in-out;
+
+    /* margin */
+    --mb-sp_normal: 4rem;
+    --mb-sp_harf: 2rem;
+    --mb-sp_tight: 1rem;
 }
 
 /*-------------------------------------------------
@@ -103,6 +108,24 @@ h1, h2, h3, h4, h5, h6{
 
 a:visited {
 	/* color: var(--c-black); */
+}
+
+
+@mixin lineHeightCrop($line-height) {
+    &::before {
+      display: block;
+      width: 0;
+      height: 0;
+      margin-top: calc((1 - #{$line-height}) * .5em);
+      content: "";
+    }
+    &::after {
+      display: block;
+      width: 0;
+      height: 0;
+      margin-bottom: calc((1 - #{$line-height}) * .5em);
+      content: "";
+    }
 }
 
 /*-------------------------------------------------
@@ -193,7 +216,7 @@ header{
             background: var(--c-white);
             padding-bottom: 15px;
             z-index: 60;
-            @include lg{
+            @include sp{
                 padding: 0;
                 .nav-inner{
                     display: flex;
@@ -213,7 +236,7 @@ header{
                 display: block;
                 height: 60px;
                 margin-top: 20px;
-                @include lg {
+                @include sp {
                     width: fit-content;
                     margin-top: 0;
                 }
@@ -260,8 +283,7 @@ header{
                     &:nth-child(1){
                         top: 50%;
                         left: 50%;
-                        transform: translate(-50%, -50%);
-                        transform: rotate(30deg);;
+                        transform: translate(-50%, -50%) rotate(30deg);
                     }
                     &:nth-child(2){
                         opacity: 0;
@@ -277,7 +299,7 @@ header{
                 .top{
                     padding-bottom: 2rem;
                 }
-                @include lg {
+                @include sp {
                     background: var(--c-white);
                     width: 100%;
                     height: 0;
@@ -428,12 +450,12 @@ header{
     width: 100%;
     height: fit-content;
     background: url(assets/images/hero/bg.png) no-repeat center / cover;
-    @include lg{
+    @include sp{
         background: none;
     }
     h1{
         padding-top: 14rem;
-        @include lg {
+        @include sp {
             height: calc(240 /375 * 100%);
             padding: 4rem 1.5rem 0;
             background: url(assets/images/hero/bg.png) no-repeat center / cover;
@@ -445,7 +467,7 @@ header{
                 width: 560px;
                 margin: auto;
                 margin-bottom: 5rem;
-                @include lg {
+                @include sp {
                     width: calc(280 / 375 * 100%);
                     min-width: 280px;
                     margin-bottom: -1rem;
@@ -484,14 +506,14 @@ header{
             line-height: var(--c-line_relaxed);
             font-weight: var(--font-weight_bold);
             padding-bottom: 4rem;
-            @include lg {
+            @include sp {
                 width: 100%;
             }
         }
     }
     ul{
         padding-bottom: 19rem;
-        @include lg {
+        @include sp {
             padding-bottom: 8rem;
         }
         li.c-check{
@@ -586,7 +608,7 @@ header{
 
 .needs{
     padding-top: 15rem;
-    @include lg {
+    @include sp {
         padding-top: 0;
         h2{
             line-height: var(--c-line_relaxed);
@@ -603,7 +625,7 @@ header{
             align-items: center;
             justify-content: center;
             gap: 9px;
-            @include lg {
+            @include sp {
                 flex-direction: column;
                 padding: 2rem;
             }
@@ -638,7 +660,7 @@ header{
             border-radius: 0 0 10px 10px;
             padding: 4rem;
             margin-bottom: 8rem;
-            @include lg {
+            @include sp {
                 padding: 4rem 2rem;
             }
             &:last-child{
@@ -658,7 +680,7 @@ header{
                 width: 250px;
                 margin-right: 40px;
                 flex-shrink: 0;
-                @include lg {
+                @include sp {
                     width: 100%;
                     margin: auto;
                     margin-bottom: 40px;
@@ -694,7 +716,10 @@ header{
             }
             .right{
                 width: calc(100% - 250px - 40px);
-                @include lg {
+                img{
+                    width: 100%;
+                }
+                @include sp {
                     width: 100%;
                     min-width: initial;
                 }
@@ -749,11 +774,11 @@ header{
     }
     .card{
         width: calc(50% - 12px);
-        padding: 5rem;
+        padding: 3.9rem;
         border: 1.1rem solid var(--c-blue);
         background: var(--c-white);
         position: relative;
-        @include lg {
+        @include sp {
             width: 100%;
         }
         h4{
@@ -782,6 +807,7 @@ header{
         }
         h3{
             font-size: var(--font-size_xxl);
+            line-height: var(--c-line_relaxed);
             text-align: center;
             margin-bottom: 3rem;
         }
@@ -789,6 +815,7 @@ header{
             dt{
                 font-size: var(--font-size_l);
                 font-weight: var(--font-weight_bold);
+                line-height: var(--c-line_relaxed);
                 color: var(--c-blue);
                 text-align: center;
                 padding-bottom: 1rem;
@@ -807,6 +834,12 @@ header{
 .about{
     .l-container.title{
         padding: 150px 0 0;
+        @include sp {
+            padding: 8rem 1.5rem 0;
+            p{
+                text-align: left;
+            }
+        }
     }
     .u-about-title{
         font-size: var(--font-size_xl);
@@ -814,9 +847,18 @@ header{
         margin-bottom: 2rem;
     }
     .l-container{
-        padding: 100px 0;
+        padding: 10rem 0;
+        @include xl {
+            padding: 10rem 3rem;
+        }
+        @include sp {
+            padding: 8rem 1.5rem;
+        }
         h3{
             margin-bottom: 67px;
+            @include sp {
+                margin-bottom: var(--mb-sp_normal);
+            }
             .num{
                 font-size: 8rem;
                 color: var(--c-white);
@@ -829,6 +871,9 @@ header{
                 &.c-blue{
                     font-size: var(--font-size_l);
                     padding-bottom: 1rem;
+                }
+                @include sp {
+                    font-size: var(--font-size_xxxl);
                 }
             }
         }
@@ -843,6 +888,17 @@ header{
             ul.c-text-l{
                 margin-bottom: 2.5rem;
             }
+            @include sp {
+                flex-direction: column-reverse;
+                ul.c-text-l{
+                    margin-bottom: var(--mb-sp_normal);
+                }
+                figcaption{
+                    p{
+                        margin-bottom: var(--mb-sp_normal);
+                    }
+                }
+            }
         }
     }
     .second{
@@ -853,10 +909,20 @@ header{
             justify-content: center;
             gap: 64px 20px;
             margin-bottom: 2rem;
+            @include sp {
+                display: block;
+                margin-bottom: var(--mb-sp_normal);
+            }
         }
         figure{
             &.u-frame{
                 width: calc(50% - 10px);
+                @include sp {
+                    width: 100%;
+                    &:first-child{
+                        margin-bottom: 2rem;
+                    }
+                }
                 span{
                     border: 5px solid var(--c-blue);
                     border-radius: 100%;
@@ -947,20 +1013,105 @@ header{
                         }
                     }
                 }
+                @include sp {
+                    padding: 0;
+                    width: 100%;
+                    display: flex;
+                    border-bottom: 0;
+                    &:last-child{
+                        border-bottom: 1px solid var(--c-grey_02);
+                    }
+                    figure,
+                    .u-support-range{
+                        width: 50%;
+                    }
+                    figure{
+                        padding: 2rem 1rem;
+                        .c-img-wrap{
+                            margin-bottom: 1.5rem;
+                        }
+                        figcaption{
+                            h5{
+                                padding-bottom: 0;
+                                border-bottom: none;
+                                margin-bottom: 0;
+                                text-align: center;
+                            }
+                        }
+                    }
+                    .u-support-range{
+                        .left{
+                            border-left: 1px solid var(--c-grey_02);
+                        }
+                        .left,
+                        .right{
+                            width: 50%;
+                            display: table;
+                            span{
+                                display: table-cell;
+                                vertical-align: middle;
+                                p{
+                                    display: none;
+                                    &.notice{
+                                        display: block;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &:first-child{
+                        .u-support-range{
+                            .left,
+                            .right{
+                                position: relative;
+                                &::before{
+                                    display: block;
+                                    position: absolute;
+                                    box-sizing: border-box;
+                                    width: calc(100% + 2px);
+                                    bottom: 100%;
+                                    left: -1px;
+                                    border: 1px solid var(--c-grey_02);
+                                    padding: 1rem;
+                                    font-size: var(--font-size_m);
+                                    font-weight: var(--font-weight_bold);
+                                    text-align: center;
+                                }
+                            }
+                            .left::before{
+                                content: 'E PUB';
+                            }
+                            .right::before{
+                                content: 'PDF';
+                            }
+                        }
+                    }
+                }
             }
         }
         .u-third-content-bottom{
             border: 1.1rem solid var(--c-grey_02);
             padding: 3.9rem;
+            @include sp {
+                padding: 3rem;
+                padding-bottom: 4rem;
+            }
             h5{
                 font-size: var(--font-size_xl);
                 color: var(--c-blue);
                 margin-bottom: 2.1rem;
+                @include sp {
+                    margin-bottom: 2.5rem;
+                }
             }
             ul{
                 border-top: 1px solid var(--c-grey_02);
                 border-left: 1px solid var(--c-grey_02);
                 margin-bottom: 2rem;
+                @include sp {
+                    margin-bottom: var(--mb-sp_tight);
+                }
                 li{
                     border-right: 1px solid var(--c-grey_02);
                     border-bottom: 1px solid var(--c-grey_02);
@@ -970,6 +1121,9 @@ header{
                     font-size: var(--font-size_l);
                     font-weight: var(--font-weight_bold);
                     background: var(--c-grey);
+                    @include sp {
+                        width: 100%;
+                    }
                     .small{
                         font-size: var(--font-size_s);
                     }
@@ -997,22 +1151,54 @@ header{
             border-spacing: 0.5rem;
             border-collapse: separate;
             margin-bottom: 4rem;
+            width: 100%;
+            &.u-table-pc{
+                display: table;
+                @include sp {
+                    display: none;
+                }
+            }
+            &.u-table-sp{
+                display: none;
+                @include sp {
+                    table-layout: fixed;
+                    width: calc(100% + 1rem);
+                    margin: auto -0.5rem;
+                    display: table;
+                    margin-bottom: var(--mb-sp_normal);
+                }
+            }
             tr{
                 th,td{
                     padding: 2rem 1.3rem 2rem 2rem;
+                    @include sp {
+                        padding: 1rem;
+                    }
                 }
                 th{
                     width: calc(100% / 5);
                     font-weight: var(--font-weight_bold);
                     color: var(--c-white);
+                    @include sp {
+                        width: auto;
+                    }
                     &.u-th-blue{
                         background-color: var(--c-blue);
                         border-radius: 1rem 1rem 0 0;
                         line-height: 1;
+                        @include sp {
+                            padding: 2rem;
+                            text-align: center;
+                        }
                     }
                     &.u-th-grey{
                         background-color: var(--c-grey_03);
                         vertical-align: middle;
+                        @include sp {
+                            width: calc(100% / 3);
+                            min-width: 113px;
+                            max-width: 210px;
+                        }
                     }
                 }
                 td{
@@ -1021,23 +1207,44 @@ header{
                         font-size: var(--font-size_s);
                         line-height: calc(24/14);
                     }
+                    @include sp {
+                        vertical-align: middle;
+                    }
+                }
+            }
+            caption{
+                font-weight: var(--font-weight_bold);
+                color: var(--c-white);
+                background-color: var(--c-blue);
+                border-radius: 1rem 1rem 0 0;
+                line-height: 1;
+                width: calc(100% - 1rem);
+                margin: auto;
+                @include sp {
+                    padding: 2rem;
+                    text-align: center;
                 }
             }
         }
     }
     .fifth{
         .u-fifth-content{
-            gap: var(--c-gap);
-            @include sp {
-                gap: var(--c-gap_sp);
-            }            
+            gap: var(--c-gap);       
             position: relative;
             margin-bottom: 4rem;
+            @include sp {
+                flex-direction: column;
+                gap: 1rem;
+            }
             .left,
             .right{
                 width: 50%;
                 padding: 4rem;
                 text-align: center;
+                @include sp {
+                    width: 100%;
+                    padding: 6rem 4rem;
+                }
                 .title{
                     font-weight: var(--font-weight_bold);
                     font-size: var(--font-size_l);
@@ -1050,7 +1257,7 @@ header{
                     font-weight: var(--font-weight_bold);
                     margin: 2rem;
                     .large{
-                        font-size: var(--font-size_xxl);
+                        font-size: var(--font-size_xxxl);
                     }
                 }
                 .notice{
@@ -1062,6 +1269,17 @@ header{
                 background-color: var(--c-blue);
                 color: var(--c-white);
                 border-color: var(--c-white);
+                @include sp {
+                    position: relative;
+                    &::after{
+                        content: url(assets/images/about/icon-plus.svg);
+                        display: block;
+                        position: absolute;
+                        top: 100%;
+                        left: 50%;
+                        transform: translate(-50%,-45%);
+                    }
+                }
             }
             .right{
                 background-color: var(--c-grey);
@@ -1077,6 +1295,9 @@ header{
                 left: 50%;
                 transform: translate(-50%,-50%);
                 z-index: 1;
+                @include sp {
+                    display: none;
+                }
             }
         }
     }
