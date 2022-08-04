@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="style.css">
+    assets/js/intersection.js
     <title>Publus 静的</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
@@ -30,6 +31,16 @@
         $('.header-btn .header-nav').on('click', function(){
             $('.js-nav-btn').removeClass('active');
             $('.js-scroll-header-content').removeClass('active');
+        })
+
+
+        $(window).on('load', function(){
+            setTimeout(function(){
+                $('.js-bnr').fadeIn();
+            }, 1500);
+        })
+        $('.js-close').on('click', function(){
+            $('.js-bnr').fadeOut(500);
         })
     })
 
@@ -142,6 +153,17 @@
 
 
     <main>
+        <aside class="js-bnr c-bnr" style="display: none;">
+            <span class="c-img-wrap">
+                <a href="">
+                    <img src="assets/images/svg/bnr_semminer.svg" alt="個別無料相談実施しています お気軽にお申し込みください！ 予約はこちらから">
+                </a>
+                <span class="js-close u-close-btn">
+                    <img src="assets/images/svg/icon-close.svg" alt="閉じる">
+                </span>
+            </span>
+        </aside>
+
         <div class="l-pattern">
             <section class="hero">
                 <h1>
@@ -178,7 +200,8 @@
                                 </dt>
                                 <dd>
                                     <p class="description">
-                                        PUBLUS Liteは大手教育系プラットフォームと既に連携の実績があります。多人数にも対応可能なシステム構成を実現しています。<br>
+                                        PUBLUS Liteは大手教育系プラットフォームと既に連携の実績があります。<br>
+                                        多人数にも対応可能なシステム構成を実現しています。<br>
                                         単なる書籍を表示するだけではなく、設問や解答などを設定することが可能です。
                                     </p>
                                     <div class="c-flex-start">
@@ -211,7 +234,8 @@
                                 </dt>
                                 <dd>
                                     <p class="description">
-                                        マイクロサービスで構築されているため、お客様の環境で容易に構築が可能です。OEMとして提供できる柔軟ビジネスプランがございます。
+                                        マイクロサービスで構築されているため、お客様の環境で容易に構築が可能です。<br>
+                                        OEMとして提供できる柔軟ビジネスプランがございます。
                                     </p>
                                     <div class="c-flex-start">
                                         <div class="left">
@@ -243,7 +267,8 @@
                                 </dt>
                                 <dd>
                                     <p class="description">
-                                        PUBLUS Liteは大手教育系プラットフォームと既に連携の実績があります。多数ユーザにも対応可能なシステム構成を実現しています。<br>
+                                        PUBLUS Liteは大手教育系プラットフォームと既に連携の実績があります。<br>
+                                        多数ユーザにも対応可能なシステム構成を実現しています。<br>
                                         単なる書籍を表示するだけではなく、設問や解答などを設定することが可能です。
                                     </p>
                                     <div class="c-flex-start">
