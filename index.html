@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="style.css">
-    assets/js/intersection.js
     <title>Publus 静的</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="assets/js/intersection.js"></script>
 </head>
 <body>
 
@@ -32,7 +32,6 @@
             $('.js-nav-btn').removeClass('active');
             $('.js-scroll-header-content').removeClass('active');
         })
-
 
         $(window).on('load', function(){
             setTimeout(function(){
@@ -214,7 +213,7 @@
                                                     <p class="c-blue">A社様</p>
                                                 </figcaption>
                                             </figure>
-                                            <p>
+                                            <p class="c-copy">
                                                 PDFにイベント（設問や音声再生等）を設定し、アップロード用ファイルを作成しました。<br>
                                                 （弊社で対応可能です）
                                             </p>
@@ -247,7 +246,7 @@
                                                     <p class="c-blue">B社様</p>
                                                 </figcaption>
                                             </figure>
-                                            <p>
+                                            <p class="c-copy">
                                                 個人情報保護の観点から、アノテーション管理サーバを自社環境で構築。<br>
                                                 コストの効率化を鑑み、配信部分は弊社のシステムをSaaSとして利用しました。
                                             </p>
@@ -281,7 +280,7 @@
                                                     <p class="c-blue">C社様</p>
                                                 </figcaption>
                                             </figure>
-                                            <p>
+                                            <p class="c-copy">
                                                 電子書籍サービスは全面的にPUBLUS Liteを活用しながら、既存サービスとの連携に成功しました。
                                             </p>
                                         </div>
@@ -313,7 +312,7 @@
                 <div class="l-inner">
                     <section class="case">
                         <div class="wrap">
-                            <h2>さまざまな業種でご活用いただいています</h2>
+                            <h2>様々な業界・業種に<br class="u-sp">ご利用いただけます</h2>
                             <ul class="container">
                                 <li class="card">
                                     <figure>
@@ -524,339 +523,24 @@
                                 </span>
                             </h3>
         
-                            <h4 class="u-about-title">基本機能</h4>
-        
-                            <ul class="c-flex-wrap u-third-content-top">
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon01.svg" alt="書籍本文表示見開きのアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                書籍本文表示<span class="small">（見開き）</span>
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon02.svg" alt="縦書き・横書き対応のアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                縦書き・横書き対応
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">文字選択不可</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon03.svg" alt="旧字体表示のアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                旧字体表示
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">画像外字対応</p>
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon04.svg" alt="スムーズスクロールのアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                スムーズスクロール
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon05.svg" alt="本文内ハイライト指定とメモ登録のアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                本文内ハイライト指定とメモ登録
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-triangle.svg" alt="不可">
-                                                <p class="notice">文字選択不可</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon06.svg" alt="書籍本文内検索とページジャンプのアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                書籍本文内検索とページジャンプ
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">文字選択不可</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon07.svg" alt="目次表示とページジャンプのアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                目次表示とページジャンプ
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon08.svg" alt="索引表示とページジャンプのアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                索引表示とページジャンプ
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">目次を応用</p>
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">目次を応用</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon09.svg" alt="ハイライト・メモ一覧と頁ジャンプ・メモ検索のアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                ハイライト・メモ一覧と頁ジャンプ・メモ検索
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-triangle.svg" alt="不可">
-                                                <p class="notice">文字選択不可</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon10.svg" alt="メモ機能のアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                メモ機能
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">要開発</p>
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">要開発</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon11.svg" alt="書誌情報表示のアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                書誌情報表示
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">要開発</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-        
-                                <li>
-                                    <figure>
-                                        <div class="c-img-wrap"><img src="assets/images/about/icon12.svg" alt="書籍滞留時間記録のアイコン"></div>
-                                        <figcaption>
-                                            <h5>
-                                                書籍滞留時間記録
-                                            </h5>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="c-flex-start u-support-range">
-                                        <div class="left">
-                                            <span>
-                                                <p>E PUB</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">要開発</p>
-                                            </span>
-                                        </div>
-                                        <div class="right">
-                                            <span>
-                                                <p>PDF</p>
-                                                <img src="assets/images/about/icon-circle.svg" alt="可">
-                                                <p class="notice">要開発</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-        
-                            <div class="u-third-content-bottom">
-                                <h5>ビューワ内メニューカスタマイズ</h5>
-                                <ul class="c-flex-wrap">
-                                    <li><p class="c-check">頁移行<span class="small">（最初へ・前へ・次へ・末尾へ）</span></p></li>
-                                    <li><p class="c-check">頁指定移動</p></li>
-                                    <li><p class="c-check">拡大縮小</p></li>
-                                    <li><p class="c-check">画面フィット<span class="small">（サイズ変更）</span></p></li>
-                                    <li><p class="c-check">印刷</p></li>
-                                    <li><p class="c-check">フルスクリーン表示</p></li>
-                                    <li><p class="c-check">回転</p></li>
-                                    <li><p class="c-check">スクロール方向切替<span class="small">（縦・横）</span></p></li>
-                                    <li><p class="c-check">頁クリップ</p></li>
-                                    <li><p class="c-check">意見登録</p></li>
-                                    <li><p class="c-check">本文コピペ制御</p></li>
-                                </ul>
-                                <p class="c-text-s c-thin">※軽微な開発が追加で必要となる場合があります。詳しくはご相談ください。</p>
-                            </div>
+                            <dl class="u-thrird-content-top">
+                                <dt><dfn>内容</dfn></dt>
+                                <dd>単ページ表示</dd>
+                                <dd>見開き表示設定（ON/OFF）</dd>
+                                <dd>ページ移動アニメーション設定（スライドor なし）</dd>
+                                <dd>ページスライド速度設定</dd>
+                                <dd>ページスライド クリック範囲設定</dd>
+                                <dd>フッター表示設定（ON/OFF）</dd>
+                                <dd>ブックマーク</dd>
+                                <dd>マーカ登録</dd>
+                                <dd>マーカ色、細さ設定</dd>
+                                <dd>マーカへのメモ入力</dd>
+                                <dd>しおり登録</dd>
+                                <dd>目次表示</dd>
+                                <dd>目次表示からの頁移動</dd>
+                            </dl>
+                            <p class="c-text-s c-thin">※2022年8月現在。</p>
+
                         </div>
                     </li>
         
