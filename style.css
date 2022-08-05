@@ -1137,6 +1137,7 @@ header .item {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  z-index: 10;
 }
 
 .needs dl dt p.c-needs-header {
@@ -1625,21 +1626,20 @@ header .item {
   .about .first .c-flex-start ul.c-text-l {
     margin-bottom: var(--mb-sp_normal);
   }
-  .about .first .c-flex-start figcaption .c-check {
-    margin-bottom: 2rem;
-  }
 }
 
-@media screen and (max-width: 980px) and (max-width: 600px) {
+.about .first .c-flex-start figcaption .c-check {
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 600px) {
   .about .first .c-flex-start figcaption .c-check {
     margin-bottom: 2.5rem;
   }
 }
 
-@media screen and (max-width: 980px) {
-  .about .first .c-flex-start figcaption p {
-    margin-bottom: var(--mb-sp_normal);
-  }
+.about .first .c-flex-start figcaption p {
+  margin-bottom: var(--mb-sp_normal);
 }
 
 .about .second .u-second-content {
@@ -2088,177 +2088,330 @@ header .item {
   }
 }
 
-/* スクロール用アニメーション c-fadeは必須 (例 "js-fade js-right") */
-.js-fade {
+/* スクロール用アニメーション c-fadeは必須 (例 "c-fade c-right") */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes rightIn {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes rightIn {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes leftIn {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes leftIn {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes bottomIn {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes bottomIn {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes leftInBit {
+  0% {
+    -webkit-transform: translateX(-1em);
+            transform: translateX(-1em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes leftInBit {
+  0% {
+    -webkit-transform: translateX(-1em);
+            transform: translateX(-1em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.c-fade {
   opacity: 0;
 }
 
-.js-fade.fade-v {
+.c-fade.fade-v {
   -webkit-animation: fadeIn 1s ease forwards;
           animation: fadeIn 1s ease forwards;
 }
 
-.js-right {
+.c-right {
   opacity: 0;
 }
 
-.js-right.fade-v {
+.c-right.fade-v {
   -webkit-animation: rightIn 1s ease forwards;
           animation: rightIn 1s ease forwards;
 }
 
-.js-left {
+.c-left {
   opacity: 0;
 }
 
-.js-left.fade-v {
+.c-left.fade-v {
   -webkit-animation: leftIn 1s ease forwards;
           animation: leftIn 1s ease forwards;
 }
 
-.js-bottom {
+.c-bottom {
   opacity: 0;
 }
 
-.js-bottom.fade-v {
+.c-bottom.fade-v {
   -webkit-animation: bottomIn 1s ease forwards;
           animation: bottomIn 1s ease forwards;
 }
 
-.js-left-bit {
+.c-left-bit {
   opacity: 0;
 }
 
-.js-left-bit.fade-v {
+.c-left-bit.fade-v {
   -webkit-animation: leftIn 1s ease forwards;
           animation: leftIn 1s ease forwards;
 }
 
 /* 順番表示 */
-.js-right-order {
+.c-right-order {
   opacity: 0;
 }
 
-.js-right-order.fade-v:nth-child(1) {
+.c-right-order.fade-v:nth-child(1) {
   -webkit-animation: 1s rightIn 0.1s ease forwards;
           animation: 1s rightIn 0.1s ease forwards;
 }
 
-.js-right-order.fade-v:nth-child(2) {
+.c-right-order.fade-v:nth-child(2) {
   -webkit-animation: 1s rightIn 0.2s ease forwards;
           animation: 1s rightIn 0.2s ease forwards;
 }
 
-.js-right-order.fade-v:nth-child(3) {
+.c-right-order.fade-v:nth-child(3) {
   -webkit-animation: 1s rightIn 0.3s ease forwards;
           animation: 1s rightIn 0.3s ease forwards;
 }
 
-.js-right-order.fade-v:nth-child(4) {
+.c-right-order.fade-v:nth-child(4) {
   -webkit-animation: 1s rightIn 0.4s ease forwards;
           animation: 1s rightIn 0.4s ease forwards;
 }
 
-.js-right-order.fade-v:nth-child(5) {
+.c-right-order.fade-v:nth-child(5) {
   -webkit-animation: 1s rightIn 0.5s ease forwards;
           animation: 1s rightIn 0.5s ease forwards;
 }
 
-.js-right-order.fade-v:nth-child(6) {
+.c-right-order.fade-v:nth-child(6) {
   -webkit-animation: 1s rightIn 0.6s ease forwards;
           animation: 1s rightIn 0.6s ease forwards;
 }
 
-.js-right-order.fade-v:nth-child(7) {
+.c-right-order.fade-v:nth-child(7) {
   -webkit-animation: 1s rightIn 0.7s ease forwards;
           animation: 1s rightIn 0.7s ease forwards;
 }
 
-.js-right-order.fade-v {
+.c-right-order.fade-v:nth-child(8) {
+  -webkit-animation: 1s rightIn 0.8s ease forwards;
+          animation: 1s rightIn 0.8s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(9) {
+  -webkit-animation: 1s rightIn 0.9s ease forwards;
+          animation: 1s rightIn 0.9s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(10) {
+  -webkit-animation: 1s rightIn 1.0s ease forwards;
+          animation: 1s rightIn 1.0s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(11) {
+  -webkit-animation: 1s rightIn 1.1s ease forwards;
+          animation: 1s rightIn 1.1s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(12) {
+  -webkit-animation: 1s rightIn 1.2s ease forwards;
+          animation: 1s rightIn 1.2s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(13) {
+  -webkit-animation: 1s rightIn 1.3s ease forwards;
+          animation: 1s rightIn 1.3s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(14) {
+  -webkit-animation: 1s rightIn 1.4s ease forwards;
+          animation: 1s rightIn 1.4s ease forwards;
+}
+
+.c-right-order.fade-v:nth-child(15) {
+  -webkit-animation: 1s rightIn 1.5s ease forwards;
+          animation: 1s rightIn 1.5s ease forwards;
+}
+
+.c-right-order.fade-v {
   -webkit-animation: rightIn 1s ease forwards;
           animation: rightIn 1s ease forwards;
 }
 
-.js-bottom-order {
+.c-bottom-order {
   opacity: 0;
 }
 
-.js-bottom-order.fade-v:nth-child(1) {
+.c-bottom-order.fade-v:nth-child(1) {
   -webkit-animation: 1s bottomIn 0.1s ease forwards;
           animation: 1s bottomIn 0.1s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(2) {
+.c-bottom-order.fade-v:nth-child(2) {
   -webkit-animation: 1s bottomIn 0.2s ease forwards;
           animation: 1s bottomIn 0.2s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(3) {
+.c-bottom-order.fade-v:nth-child(3) {
   -webkit-animation: 1s bottomIn 0.3s ease forwards;
           animation: 1s bottomIn 0.3s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(4) {
+.c-bottom-order.fade-v:nth-child(4) {
   -webkit-animation: 1s bottomIn 0.4s ease forwards;
           animation: 1s bottomIn 0.4s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(5) {
+.c-bottom-order.fade-v:nth-child(5) {
   -webkit-animation: 1s bottomIn 0.5s ease forwards;
           animation: 1s bottomIn 0.5s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(6) {
+.c-bottom-order.fade-v:nth-child(6) {
   -webkit-animation: 1s bottomIn 0.6s ease forwards;
           animation: 1s bottomIn 0.6s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(7) {
+.c-bottom-order.fade-v:nth-child(7) {
   -webkit-animation: 1s bottomIn 0.7s ease forwards;
           animation: 1s bottomIn 0.7s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(8) {
+.c-bottom-order.fade-v:nth-child(8) {
   -webkit-animation: 1s bottomIn 0.8s ease forwards;
           animation: 1s bottomIn 0.8s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(9) {
+.c-bottom-order.fade-v:nth-child(9) {
   -webkit-animation: 1s bottomIn 0.9s ease forwards;
           animation: 1s bottomIn 0.9s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(10) {
+.c-bottom-order.fade-v:nth-child(10) {
   -webkit-animation: 1s bottomIn 1.0s ease forwards;
           animation: 1s bottomIn 1.0s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(11) {
+.c-bottom-order.fade-v:nth-child(11) {
   -webkit-animation: 1s bottomIn 1.1s ease forwards;
           animation: 1s bottomIn 1.1s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(12) {
+.c-bottom-order.fade-v:nth-child(12) {
   -webkit-animation: 1s bottomIn 1.2s ease forwards;
           animation: 1s bottomIn 1.2s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(13) {
+.c-bottom-order.fade-v:nth-child(13) {
   -webkit-animation: 1s bottomIn 1.3s ease forwards;
           animation: 1s bottomIn 1.3s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(14) {
+.c-bottom-order.fade-v:nth-child(14) {
   -webkit-animation: 1s bottomIn 1.4s ease forwards;
           animation: 1s bottomIn 1.4s ease forwards;
 }
 
-.js-bottom-order.fade-v:nth-child(15) {
+.c-bottom-order.fade-v:nth-child(15) {
   -webkit-animation: 1s bottomIn 1.5s ease forwards;
           animation: 1s bottomIn 1.5s ease forwards;
 }
 
-.js-bottom-order.fade-v {
+.c-bottom-order.fade-v {
   -webkit-animation: bottomIn 1s ease forwards;
           animation: bottomIn 1s ease forwards;
 }
